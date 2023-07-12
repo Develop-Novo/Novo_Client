@@ -49,7 +49,7 @@ function RegisterPage() {
         <div className={styles.container__wrapper}>
             <div className={styles.container}>
                 <form className={styles.form} onSubmit={handleSubmit(onValid)}>
-                    <h1 id={styles.register__text}>
+                    <h1 id={styles.form__title}>
                         회원가입
                     </h1>
                     <input className={styles.input} id={styles.input__name}
@@ -75,8 +75,8 @@ function RegisterPage() {
                             회원가입
                         </div>
                     </button>
-                    <div className={styles.register__link}>
-                        이미 가입하셨나요? <span id={styles.register__link__highlight}>로그인</span>
+                    <div className={styles.login__link}>
+                        이미 가입하셨나요? <span id={styles.login__link__highlight}>로그인</span>
                     </div>
 
                     <hr className={styles.form__hr} />
