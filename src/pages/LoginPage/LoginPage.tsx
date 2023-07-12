@@ -44,7 +44,7 @@ function RegisterPage() {
                             로그인
                         </div>
                     </button>
-                    <div className={styles.password__forget__link}>
+                    <div className={styles.reset__password__link}>
                         비밀번호를 잃어버리셨나요?
                     </div>
                     <div className={styles.register__link}>

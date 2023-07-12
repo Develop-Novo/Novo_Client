@@ -127,7 +127,7 @@
     opacity: 1;
 }
 
-.password__forget__link{
+.reset__password__link{
     margin-top: 24px;
 
     width: 178px;
@@ -138,6 +138,8 @@
     font: normal normal normal 16px/19px Pretendard;
     letter-spacing: 0px;
     opacity: 1;
+
+    cursor: pointer;
 }
 
 .register__link{
@@ -151,6 +153,8 @@
     font: normal normal normal 16px/19px Pretendard;
     letter-spacing: 0px;
     opacity: 1;
+
+    cursor: pointer;
 }
 
 #register__link__highlight{
@@ -191,8 +195,8 @@
 }
 
 .logos{
-    margin-top: 32px;
-    margin-bottom: 32px;
+    margin-top: 28px;
+    margin-bottom: 40px;
 
     width: 382px;
 
