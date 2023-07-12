@@ -1,0 +1,261 @@
+.container__wrapper{
+    width: 100vw;
+    height: 100vh;
+}
+
+.container{
+    position: relative;
+    /* Layout Properties */
+    top: 0px;
+    left: 0px;
+    width: 1920px;
+    height: 1080px;
+
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.form{
+    position: absolute;
+    
+    /* Layout Properties */
+    top: 210px;
+    left: 745px;
+    width: 430px;
+
+    /* UI Properties */
+    border: 1px solid #FF0000;
+    opacity: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#form__title{
+    margin-top: 116px;
+    /* Layout Properties */
+    width: 70px;
+    height: 24px;
+
+    /* UI Properties */
+    text-align: center;
+    font: normal normal bold 20px/24px Pretendard;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+
+.input{
+    padding: 8px;
+
+    /* Layout Properties */
+    width: 382px;
+    height: 52px;
+    /* UI Properties */
+    border: 1px solid #707070;
+    border-radius: 4px;
+    opacity: 1;
+
+    &:focus{
+        outline: none;
+        border: 2px solid #FF0000;
+        border-radius: 4px;
+        opacity: 1;
+    }
+}
+
+#input__email{
+    margin-top: 24px;
+}
+
+#input__password{
+    margin-top: 8px;
+}
+
+
+.error__message{
+    margin-top: 8px;
+    margin-left: 40px;
+    margin-right: 24px;
+    width: calc(100% - 64px);
+
+    text-align: left;
+    font: normal normal normal 16px/19px Pretendard;
+    letter-spacing: 0px;
+    color: #FF0000;
+    opacity: 1;
+}
+
+#error__message__email{
+    height: 19px;
+}
+#error__message__password{
+    height: 19px;
+}
+
+.button__submit{
+    margin-top: 48px;
+
+    /* Layout Properties */
+    width: 382px;
+    height: 52px;
+    /* UI Properties */
+    background-color: #FF6B01;
+    border: 1px solid #FF6B01;
+    border-radius: 4px;
+    opacity: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    cursor: pointer;
+}
+
+.button__submit__text{
+    width: 70px;
+    height: 24px;
+
+    text-align: center;
+    font: normal normal bold 20px/24px Pretendard;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.password__forget__link{
+    margin-top: 24px;
+
+    width: 178px;
+    height: 19px;
+
+    /* UI Properties */ 
+    text-align: center;
+    font: normal normal normal 16px/19px Pretendard;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+.register__link{
+    margin-top: 20px;
+
+    width: 182px;
+    height: 19px;
+
+    /* UI Properties */ 
+    text-align: center;
+    font: normal normal normal 16px/19px Pretendard;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+#register__link__highlight{
+    text-align: center;
+    font: normal normal normal 16px/19px Pretendard;
+    letter-spacing: 0px;
+    color: #FF6B01;
+}
+
+/* 확인필요 */
+
+.form__hr{
+    margin-top: 40px;
+    
+    width: 382px;
+}
+
+.form__hr__or__text{
+    margin-top: -19px;
+
+    background-color: #FFFFFF;
+    padding: 0px 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Layout Properties */
+    width: 22px;
+    height: 19px;
+
+    /* UI Properties */
+    text-align: center;
+    font: normal normal normal 16px/19px Pretendard;
+    letter-spacing: 0px;
+    color: #707070;
+    opacity: 1;
+}
+
+.logos{
+    margin-top: 32px;
+    margin-bottom: 32px;
+
+    width: 382px;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo{
+    border-radius: 100%;
+    width: 54px;
+    height: 54px;
+    background-color: lightgrey;
+}
+
+/* 확인필요 */
+
+.cover{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1920px;
+    height: 1080px;
+    background: #707070 0% 0% no-repeat padding-box;
+    opacity: 0.33;
+}
+
+.popup{
+    position: absolute;
+    top: 460px;
+    left: 785px;
+    width: 350px;
+    height: 160px;
+    
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.success__message{
+    margin-top: 40px;
+}
+
+.popup__hr{
+    margin-top: 40px;
+    height: 1px;
+    width: calc(100% - 48px);
+    background-color: #C0C0C0;
+    border: none;
+    outline: none;
+}
+
+.popup__button{
+    margin-top: 16px;
+    text-align: center;
+    font: normal normal normal 20px/24px Pretendard;
+    letter-spacing: 0px;
+    color: #FF6B01;
+    opacity: 1;
+}
+
