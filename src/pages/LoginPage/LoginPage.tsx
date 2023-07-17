@@ -18,6 +18,7 @@ function RegisterPage() {
         <div className={styles.container__wrapper}>
             <div className={styles.container}>
                 <form className={styles.form} onSubmit={handleSubmit(onValid)}>
+                    <img className={styles.novo__logo} src="/images/novo__logo.png" alt="novo__logo" />
                     <h1 id={styles.form__title}>
                         로그인
                     </h1>
@@ -54,11 +55,11 @@ function RegisterPage() {
                     <hr className={styles.form__hr} />
                     <div className={styles.form__hr__or__text}>OR</div>
                     <div className={styles.logos}>
-                        <div className={styles.logo} />
-                        <div className={styles.logo} />
-                        <div className={styles.logo} />
-                        <div className={styles.logo} />
-                        <div className={styles.logo} />
+                        <img className={styles.logo} src="/images/naver__icon.png" alt="naver__icon" />
+                        <img className={styles.logo} src="/images/kakao__icon.png" alt="kakao__icon" />
+                        <img className={styles.logo} src="/images/google__icon.png" alt="google__icon" />
+                        <img className={styles.logo} src="/images/twitter__icon.png" alt="twitter__icon" />
+                        <img className={styles.logo} src="/images/apple__icon.png" alt="apple__icon" />
                     </div>
                 </form>
             </div>
