@@ -5,10 +5,6 @@ import Banner from "../../components/Banner/LargeBanner";
 import BannerButton from "../../components/Button/BannerButton";
 import Ranking from "../../components/Ranking/Ranking";
 
-interface IData {
-	email: string;
-}
-
 function MainPage() {
 	return (
 		<>

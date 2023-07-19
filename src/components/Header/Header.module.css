@@ -2,8 +2,10 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
 #header_container {
 	display: flex;
+	justify-content: space-around;
 	top: 0px;
 	left: 0px;
 	width: 1920px;
@@ -18,8 +20,6 @@ body {
 	height: 72px;
 	display: flex;
 	align-items: center;
-	margin-left: 209px;
-	margin-right: 351px;
 }
 
 .logo {
@@ -38,7 +38,6 @@ body {
 	border-radius: 4px;
 	margin-top: 20px;
 	margin-bottom: 12px;
-	margin-right: 301px;
 }
 
 .search_icon {
@@ -65,9 +64,9 @@ body {
 
 .icons {
 	width: 141.23px;
-	margin-right: 225px;
 	display: flex;
 	justify-content: space-between;
 	margin-top: 28px;
 	margin-bottom: 12px;
+	padding-right: 30px;
 }
