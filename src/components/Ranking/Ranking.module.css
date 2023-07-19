@@ -1,0 +1,17 @@
+.ranking_container {
+	margin-left: 218px;
+	margin-top: 72px;
+}
+.ranking_title {
+	text-align: left;
+	font: normal normal bold 28px/34px Pretendard;
+	letter-spacing: 0px;
+	color: #000000;
+	margin-bottom: 28px;
+}
+
+.covers {
+	width: 1480px;
+	display: flex;
+	justify-content: space-between;
+}

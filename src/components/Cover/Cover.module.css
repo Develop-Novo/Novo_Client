@@ -1,0 +1,40 @@
+.cover_image {
+	background: url("https://github.com/Develop-Novo/Novo_Client/assets/40304565/55de80ff-9cc3-403c-aba7-d477f3556c7a");
+	width: 280px;
+	height: 408px;
+	display: flex;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+}
+
+.rank_num {
+	width: 32px;
+	height: 32px;
+	background: rgba(0, 0, 0, 0.7) 0% 0% no-repeat padding-box;
+	border-radius: 4px;
+	color: #ffffff;
+	font: normal normal bold 20px/24px Pretendard;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 12px;
+}
+
+.cover_title {
+	font: normal normal bold 20px/24px Pretendard;
+	letter-spacing: 0px;
+	color: #707070;
+	text-align: left;
+	margin-top: 12px;
+	margin-bottom: 8px;
+}
+
+.cover_rating {
+	text-align: left;
+	font: normal normal normal 16px/19px Pretendard;
+	letter-spacing: 0px;
+	color: #ff6b01;
+}
