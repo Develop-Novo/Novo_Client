@@ -4,6 +4,7 @@ import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/LargeBanner";
 import BannerButton from "../../components/Button/BannerButton";
 import Ranking from "../../components/Ranking/Ranking";
+import Footer from "../../components/Footer/Footer";
 
 const MainPage = () => {
 	const [rankingList, setRankingList] = useState([
@@ -218,6 +219,7 @@ const MainPage = () => {
 				// 각각의 ranking 데이터를 Ranking 컴포넌트에 전달
 				<Ranking key={item.rankingTitle} rankingProps={item} />
 			))}
+			<Footer />
 		</>
 	);
 };
