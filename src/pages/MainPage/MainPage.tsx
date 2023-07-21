@@ -47,6 +47,41 @@ const MainPage = () => {
 					novelTitle: "당신의 이해를 돕기 위하여",
 					novelRating: "9.6",
 				},
+				{
+					rankingNum: 6,
+					novelImage:
+						"https://github.com/Develop-Novo/Novo_Client/assets/40304565/48d0be83-ddd1-42f0-82f4-2e0dbf1a6675",
+					novelTitle: "데뷔 못하면 죽는 병 걸림",
+					novelRating: "10.0",
+				},
+				{
+					rankingNum: 7,
+					novelImage:
+						"https://github.com/Develop-Novo/Novo_Client/assets/40304565/48d0be83-ddd1-42f0-82f4-2e0dbf1a6675",
+					novelTitle: "템빨",
+					novelRating: "9.8",
+				},
+				{
+					rankingNum: 8,
+					novelImage:
+						"https://github.com/Develop-Novo/Novo_Client/assets/40304565/ee2de63e-2974-4461-8410-2fc86a29fca3",
+					novelTitle: "이계 검왕 생존기",
+					novelRating: "9.9",
+				},
+				{
+					rankingNum: 9,
+					novelImage:
+						"https://github.com/Develop-Novo/Novo_Client/assets/40304565/48d0be83-ddd1-42f0-82f4-2e0dbf1a6675",
+					novelTitle: "악녀가 사랑할 때",
+					novelRating: "10.0",
+				},
+				{
+					rankingNum: 10,
+					novelImage:
+						"https://github.com/Develop-Novo/Novo_Client/assets/40304565/be359686-128a-4603-96c4-ae1757443dd4",
+					novelTitle: "당신의 이해를 돕기 위하여",
+					novelRating: "9.6",
+				},
 			],
 		},
 		{
@@ -207,6 +242,41 @@ const MainPage = () => {
 					novelTitle: "품격을 배반한다",
 					novelRating: "9.6",
 				},
+				{
+					rankingNum: 6,
+					novelImage:
+						"https://github.com/Develop-Novo/Novo_Client/assets/40304565/48d0be83-ddd1-42f0-82f4-2e0dbf1a6675",
+					novelTitle: "상냥한 원수와의 정략결혼",
+					novelRating: "10.0",
+				},
+				{
+					rankingNum: 7,
+					novelImage:
+						"https://github.com/Develop-Novo/Novo_Client/assets/40304565/48d0be83-ddd1-42f0-82f4-2e0dbf1a6675",
+					novelTitle: "상수리 나무 아래",
+					novelRating: "9.8",
+				},
+				{
+					rankingNum: 8,
+					novelImage:
+						"https://github.com/Develop-Novo/Novo_Client/assets/40304565/87211a48-feb5-4122-a06f-326f8a98cbbe",
+					novelTitle: "참아주세요, 대공",
+					novelRating: "9.9",
+				},
+				{
+					rankingNum: 9,
+					novelImage:
+						"https://github.com/Develop-Novo/Novo_Client/assets/40304565/48d0be83-ddd1-42f0-82f4-2e0dbf1a6675",
+					novelTitle: "흑막 용을 키우게 되었다",
+					novelRating: "10.0",
+				},
+				{
+					rankingNum: 10,
+					novelImage:
+						"https://github.com/Develop-Novo/Novo_Client/assets/40304565/48d0be83-ddd1-42f0-82f4-2e0dbf1a6675",
+					novelTitle: "품격을 배반한다",
+					novelRating: "9.6",
+				},
 			],
 		},
 	]);
@@ -300,6 +370,7 @@ const MainPage = () => {
 			<span className={styles.showSlideNum}>
 				{currentSlide + 1} / {bannerList.length}
 			</span>
+
 			{rankingList.map((item) => (
 				// Each ranking data is passed to the Ranking component
 				<Ranking key={item.rankingTitle} rankingProps={item} />

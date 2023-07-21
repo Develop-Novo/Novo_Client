@@ -14,4 +14,14 @@
 	width: 1480px;
 	display: flex;
 	justify-content: space-between;
+	overflow: hidden;
+}
+
+.cover_next_button,
+.cover_previous_button {
+	margin-top: 13%;
+}
+
+.cover_previous_button {
+	display: none;
 }
