@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import styles from "./MainPage.module.css";
 import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/LargeBanner";
-import BannerButton from "../../components/Button/BannerButton";
+import BannerButton from "../../components/Button/Button";
 import Ranking from "../../components/Ranking/Ranking";
 import Footer from "../../components/Footer/Footer";
+import Button from "../../components/Button/Button";
 
 const MainPage = () => {
 	const [rankingList, setRankingList] = useState([
@@ -209,14 +210,98 @@ const MainPage = () => {
 			],
 		},
 	]);
+
+	const [bannerList, setBannerList] = useState([
+		{
+			bannerImage:
+				"https://github.com/Develop-Novo/Novo_Client/assets/40304565/0a7532ab-ce13-4405-8a90-16a87ed02756",
+			bannerTitle: "더는 당신의 악녀로 살지 않겠습니다",
+			bannerSubtitle:
+				"괴물이라 손가락질 받았으니 진짜 괴물이 되어주겠어.",
+		},
+		{
+			bannerImage:
+				"https://github.com/Develop-Novo/Novo_Client/assets/40304565/203a6943-f890-4da1-897b-abdb1889f387",
+			bannerTitle: "데뷔 못하면 죽는 병 걸림",
+			bannerSubtitle: "데뷔 못하면 죽는 병 걸림 진짜로",
+		},
+		{
+			bannerImage:
+				"https://github.com/Develop-Novo/Novo_Client/assets/40304565/b40b23d1-04f6-43f8-b2b6-ce8c2968c9d4",
+			bannerTitle: "던전팜!",
+			bannerSubtitle: "던전던전팜팜22",
+		},
+	]);
+	const [currentSlide, setCurrentSlide] = useState(0);
+
+	const handleNextSlide = () => {
+		setCurrentSlide((prevSlide) => (prevSlide + 1) % bannerList.length);
+	};
+
+	const handlePreviousSlide = () => {
+		setCurrentSlide(
+			(prevSlide) =>
+				(prevSlide - 1 + bannerList.length) % bannerList.length
+		);
+	};
+
+	useEffect(() => {
+		// Apply transition style to the slideList element
+		const slideListElement = document.getElementById(styles.slideList);
+		if (slideListElement != null) {
+			slideListElement.style.transition = "transform 0.3s ease-in-out";
+			slideListElement.style.transform = `translateX(-${
+				currentSlide * 100
+			}%)`;
+
+			// Clean up the transition style after the animation is finished
+			const handleTransitionEnd = () => {
+				slideListElement.style.transition = "";
+			};
+			slideListElement.addEventListener(
+				"transitionend",
+				handleTransitionEnd
+			);
+
+			return () => {
+				// Clean up the event listener
+				slideListElement.removeEventListener(
+					"transitionend",
+					handleTransitionEnd
+				);
+			};
+		}
+	}, [currentSlide]);
+
 	return (
 		<>
 			<Header />
-			<div id={styles.Banner}>
-				<Banner />
+			<div id={styles.banner_container}>
+				<Button
+					buttonType="left"
+					buttonTop="382px"
+					buttonLeft="201px"
+					onClick={handlePreviousSlide}
+				/>
+				<div id={styles.slideList}>
+					{bannerList.map((item, index) => (
+						<span key={index} className={styles.banner}>
+							<Banner bannerProps={item} />
+						</span>
+					))}
+				</div>
+				<Button
+					buttonType="right"
+					buttonTop="382px"
+					buttonLeft="1683px"
+					onClick={handleNextSlide}
+				/>
 			</div>
+			<span className={styles.showSlideNum}>
+				{currentSlide + 1} / {bannerList.length}
+			</span>
 			{rankingList.map((item) => (
-				// 각각의 ranking 데이터를 Ranking 컴포넌트에 전달
+				// Each ranking data is passed to the Ranking component
 				<Ranking key={item.rankingTitle} rankingProps={item} />
 			))}
 			<Footer />

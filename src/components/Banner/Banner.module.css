@@ -1,13 +1,3 @@
-.background_wrap {
-	background: url("https://github.com/Develop-Novo/Novo_Client/assets/40304565/ffe7d2e3-c982-404d-8bc5-7ebdf99d446b")
-		center no-repeat;
-	width: 1480px;
-	height: 560px;
-	display: flex;
-	text-align: center;
-	margin: auto;
-}
-
 .content {
 	display: flex;
 	flex-direction: column;
