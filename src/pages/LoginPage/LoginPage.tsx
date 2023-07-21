@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./LoginPage.module.css";
+import { Link } from "react-router-dom";
 
 interface IData {
 	email: string;
@@ -77,16 +78,17 @@ function LoginPage() {
 								로그인
 							</div>
 						</button>
-						<div className={styles.reset__password__link}>
-							비밀번호를 잃어버리셨나요?
-						</div>
-						<div className={styles.register__link}>
-							이미 가입하셨나요?{" "}
-							<span id={styles.register__link__highlight}>
-								로그인
-							</span>
-						</div>
-
+						<Link to={`${process.env.PUBLIC_URL}/register`}>
+							<div className={styles.reset__password__link}>
+								비밀번호를 잃어버리셨나요?
+							</div>
+							<div className={styles.register__link}>
+								계정이 없으신가요?{" "}
+								<span id={styles.register__link__highlight}>
+									회원가입
+								</span>
+							</div>
+						</Link>
 						<hr className={styles.form__hr} />
 						<div className={styles.form__hr__or__text}>OR</div>
 						<div className={styles.logos}>

@@ -6,7 +6,7 @@ interface IData {
     email: string;
 }
 
-function RegisterPage() {
+function ResetPasswordPage() {
     ////////////////
     const { register, handleSubmit, formState: { errors }, setError } = useForm<IData>();
     const onValid = (data: IData) => {
@@ -47,4 +47,4 @@ function RegisterPage() {
     </>
 }
 
-export default RegisterPage;
+export default ResetPasswordPage;

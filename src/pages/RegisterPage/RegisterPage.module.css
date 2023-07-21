@@ -1,3 +1,8 @@
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .container__wrapper{
     width: 100vw;
     height: 100vh;
@@ -55,10 +60,10 @@
 }
 
 .input{
-    padding: 8px;
+    padding: 0px 16px;
 
     /* Layout Properties */
-    width: 382px;
+    width: calc(382px - 32px);
     height: 52px;
     /* UI Properties */
     border: 1px solid #707070;
@@ -205,6 +210,8 @@
     width: 54px;
     height: 54px;
     background-color: lightgrey;
+
+    cursor: pointer;
 }
 
 /* 확인필요 */

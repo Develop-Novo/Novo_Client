@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import styles from "./RegisterPage.module.css";
+import { Link } from 'react-router-dom';
 
 interface IData {
     name: string;
@@ -76,9 +77,11 @@ function RegisterPage() {
                             회원가입
                         </div>
                     </button>
-                    <div className={styles.login__link}>
-                        이미 가입하셨나요? <span id={styles.login__link__highlight}>로그인</span>
-                    </div>
+                    <Link to={`${process.env.PUBLIC_URL}/`}>
+                        <div className={styles.login__link}>
+                            이미 가입하셨나요? <span id={styles.login__link__highlight}>로그인</span>
+                        </div>
+                    </Link>
 
                     <hr className={styles.form__hr} />
                     <div className={styles.form__hr__or__text}>OR</div>
@@ -91,12 +94,12 @@ function RegisterPage() {
                     </div>
                 </form>
             </div>
-            <div className={styles.cover} />
+            {/* <div className={styles.cover} />
             <div className={styles.popup}>
                 <div className={styles.success__message}>회원가입이 완료되었습니다!</div>
                 <div className={styles.popup__hr} />
                 <span className={styles.popup__button}>로그인하기</span>
-            </div>
+            </div> */}
         </div>
     </>
 }
