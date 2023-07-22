@@ -10,8 +10,9 @@ interface IData {
 }
 
 function RegisterPage() {
+    const [popupOpen, setPopupOpen] = useState(false);
     //regex/////////
-    const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@#$%^&+=])[A-Za-z\d@#$%^&+=]{6,}$/;
+    const regex = /^(?=.*[A-Za-z])(?=.*\d|.*[\W_]).{6,}$/;
     ////////////////
     const { register, handleSubmit, formState: { errors }, setError } = useForm<IData>();
     const onValid = (data: IData) => {
@@ -25,6 +26,7 @@ function RegisterPage() {
             );
         } else {
             console.log("Backend에 전송");
+            setPopupOpen(true);
             // fetch('http://localhost:8080/members/add', {
             //     method: 'POST',
             //     headers: {
@@ -94,12 +96,18 @@ function RegisterPage() {
                     </div>
                 </form>
             </div>
-            {/* <div className={styles.cover} />
-            <div className={styles.popup}>
-                <div className={styles.success__message}>회원가입이 완료되었습니다!</div>
-                <div className={styles.popup__hr} />
-                <span className={styles.popup__button}>로그인하기</span>
-            </div> */}
+            {popupOpen && <>
+					<div className={styles.cover} onClick={() => setPopupOpen(false)} />
+					<div className={styles.popup}>
+						<div className={styles.success__message}>회원가입이 완료되었습니다!</div>
+						<div className={styles.popup__hr} />
+						<span className={styles.popup__button}>
+                            <Link to={`${process.env.PUBLIC_URL}/`}>
+                                로그인하기
+                            </Link>
+                        </span>
+					</div>
+			</>}
         </div>
     </>
 }

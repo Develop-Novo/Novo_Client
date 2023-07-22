@@ -9,6 +9,7 @@ interface IData {
 }
 
 function LoginPage() {
+	const [popupOpen, setPopupOpen] = useState(false);
 	////////////////
 	const {
 		register,
@@ -18,6 +19,7 @@ function LoginPage() {
 	} = useForm<IData>();
 	const onValid = (data: IData) => {
 		console.log("submit");
+		setPopupOpen(true);
 	};
 
 	return (
@@ -122,12 +124,14 @@ function LoginPage() {
 						</div>
 					</form>
 				</div>
-				{/* <div className={styles.cover} />
-            <div className={styles.popup}>
-                <div className={styles.success__message}>회원가입이 완료되었습니다!</div>
-                <div className={styles.popup__hr} />
-                <span className={styles.popup__button}>로그인하기</span>
-            </div> */}
+				{popupOpen && <>
+					<div className={styles.cover} onClick={() => setPopupOpen(false)} />
+					<div className={styles.popup}>
+						<div className={styles.success__message}>로그인이 완료되었습니다!</div>
+						<div className={styles.popup__hr} />
+						<span className={styles.popup__button} onClick={() => setPopupOpen(false)}>닫기</span>
+					</div>
+				</>}
 			</div>
 		</>
 	);
