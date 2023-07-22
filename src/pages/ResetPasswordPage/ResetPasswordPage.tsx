@@ -17,6 +17,7 @@ function ResetPasswordPage() {
         <div className={styles.container__wrapper}>
             <div className={styles.container}>
                 <form className={styles.form} onSubmit={handleSubmit(onValid)}>
+                    <img className={styles.novo__logo} src="/images/novo__logo.png" alt="novo__logo" />
                     <h1 id={styles.form__title}>
                         비밀번호 재설정
                     </h1>

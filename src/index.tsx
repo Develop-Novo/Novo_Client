@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage/ResetPasswordPage";
 import MainPage from "./pages/MainPage/MainPage";
 
 const root = ReactDOM.createRoot(
@@ -15,6 +16,7 @@ root.render(
 		<Routes>
 			<Route path="/" element={<LoginPage />}></Route>
 			<Route path="register" element={<RegisterPage />}></Route>
+			<Route path="resetpassword" element={<ResetPasswordPage />}></Route>
 			<Route path="main" element={<MainPage />}></Route>
 		</Routes>
 	</BrowserRouter>
