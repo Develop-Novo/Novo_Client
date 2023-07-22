@@ -78,10 +78,12 @@ function LoginPage() {
 								로그인
 							</div>
 						</button>
-						<Link to={`${process.env.PUBLIC_URL}/register`}>
+						<Link to={`${process.env.PUBLIC_URL}/resetpassword`}>
 							<div className={styles.reset__password__link}>
 								비밀번호를 잃어버리셨나요?
 							</div>
+						</Link>
+						<Link to={`${process.env.PUBLIC_URL}/register`}>
 							<div className={styles.register__link}>
 								계정이 없으신가요?{" "}
 								<span id={styles.register__link__highlight}>
