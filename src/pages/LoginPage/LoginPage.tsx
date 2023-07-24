@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./LoginPage.module.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 interface IData {
 	email: string;
@@ -18,7 +19,23 @@ function LoginPage() {
 		setError,
 	} = useForm<IData>();
 	const onValid = (data: IData) => {
-		console.log("submit");
+		//console.log("Backend에 전송");
+		const postLogin = async () => {
+			try {
+				const response = await axios.post('/member/login', {
+					email: data.email,
+					password: data.password
+				}, {
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+				console.log(response);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		postLogin();
 		setPopupOpen(true);
 	};
 
