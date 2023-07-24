@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import styles from "./RegisterPage.module.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 interface IData {
     name: string;
@@ -11,6 +12,8 @@ interface IData {
 
 function RegisterPage() {
     const [popupOpen, setPopupOpen] = useState(false);
+    //nativgate/////
+    const navigate = useNavigate();
     //regex/////////
     const regex = /^(?=.*[A-Za-z])(?=.*\d|.*[\W_]).{6,}$/;
     ////////////////
@@ -25,26 +28,25 @@ function RegisterPage() {
                 { shouldFocus: true } //에러 발생시 해당 구간에 포커스하게 하는 설정
             );
         } else {
-            console.log("Backend에 전송");
+            //console.log("Backend에 전송");
+            const postMember = async () => {
+                try {
+                    const response = await axios.post('/member/new', {
+                        name: data.name,
+                        email: data.email,
+                        password: data.password
+                    }, {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    //console.log(response);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
+            postMember();
             setPopupOpen(true);
-            // fetch('http://localhost:8080/members/add', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify({
-            //         "name": data.name,
-            //         "email": data.email,
-            //         "password": data.password,
-            //     }),
-            // }).then(res => {
-            //     if(res.ok){
-            //         alert("회원가입이 완료되었습니다.");
-            //         navigate(`${process.env.PUBLIC_URL}/login`);
-            //     }
-            // }).catch(error => {
-            //     console.log(error);
-            // });
         }
     }
 
@@ -97,17 +99,17 @@ function RegisterPage() {
                 </form>
             </div>
             {popupOpen && <>
-					<div className={styles.cover} onClick={() => setPopupOpen(false)} />
-					<div className={styles.popup}>
-						<div className={styles.success__message}>회원가입이 완료되었습니다!</div>
-						<div className={styles.popup__hr} />
-						<span className={styles.popup__button}>
-                            <Link to={`${process.env.PUBLIC_URL}/`}>
-                                로그인하기
-                            </Link>
-                        </span>
-					</div>
-			</>}
+                <div className={styles.cover} onClick={() => setPopupOpen(false)} />
+                <div className={styles.popup}>
+                    <div className={styles.success__message}>회원가입이 완료되었습니다!</div>
+                    <div className={styles.popup__hr} />
+                    <span className={styles.popup__button}>
+                        <Link to={`${process.env.PUBLIC_URL}/`}>
+                            로그인하기
+                        </Link>
+                    </span>
+                </div>
+            </>}
         </div>
     </>
 }
