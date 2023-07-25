@@ -8,7 +8,7 @@ interface NovelInfo {
 	rankingNum: number;
 	novelImage: string;
 	novelTitle: string;
-	novelRating: string;
+	novelRating: number;
 }
 
 // 랭킹 정보에 대한 타입 정의

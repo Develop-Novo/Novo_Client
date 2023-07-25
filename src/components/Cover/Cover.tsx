@@ -5,7 +5,7 @@ interface NovelProps {
 	rankingNum: number;
 	novelImage: string;
 	novelTitle: string;
-	novelRating: string;
+	novelRating: number;
 }
 
 const Cover: React.FC<{ novelProps: NovelProps }> = ({ novelProps }) => {
