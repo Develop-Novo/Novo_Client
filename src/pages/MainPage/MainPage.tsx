@@ -8,9 +8,19 @@ import Footer from "../../components/Footer/Footer";
 import Button from "../../components/Button/Button";
 import axios from "axios";
 
+//서영수정/////////////////////////////////
+interface NovelInfo {
+	rankingNum: number;
+	novelImage: string;
+	novelTitle: string;
+	novelRating: number;
+}
+//////////////////////////////////////////
 const MainPage = () => {
-	const [novoNovels, setNovoNovels] = useState([{}]);
-
+	//서영수정/////////////////////////////////
+	//빈 배열일 때 문제가 발생하는 것 같아서 수정했습니다..!
+	const [novoNovels, setNovoNovels] = useState<NovelInfo[]>([]);
+	//////////////////////////////////////////
 	useEffect(() => {
 		async function fetchData() {
 			try {
@@ -29,7 +39,7 @@ const MainPage = () => {
 				};
 
 				novels.push(rankingData);
-
+				
 				setNovoNovels(novels);
 			} catch (error) {
 				console.log(error);
@@ -125,10 +135,10 @@ const MainPage = () => {
 			rankingNovels: novoNovels,
 		},
 	];
-	console.log(rankingList);
+	console.log("rankingList:", rankingList);
 
 	return (
-		<>
+		novoNovels && <>
 			<Header />
 
 			<div id={styles.banner_container}>
@@ -156,9 +166,8 @@ const MainPage = () => {
 				{currentSlide + 1} / {bannerList.length}
 			</span>
 
-			{rankingList.map((item) => (
-				//<Ranking rankingProps={item} /> //여기에서 props넘겨줄 때 타입이 안맞아서 계속 오류가 나요ㅠㅠ 일단 console.log로 테스트 데이터 확인해보시라구 주석처리 해놨습니당!
-				<Footer />
+			{rankingList.map((item, index) => (
+				<Ranking key={index} rankingProps={item} /> //여기에서 props넘겨줄 때 타입이 안맞아서 계속 오류가 나요ㅠㅠ 일단 console.log로 테스트 데이터 확인해보시라구 주석처리 해놨습니당!
 			))}
 			<Footer />
 		</>
