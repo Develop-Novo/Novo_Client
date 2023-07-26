@@ -31,7 +31,7 @@ function RegisterPage() {
             //console.log("Backend에 전송");
             const postMember = async () => {
                 try {
-                    const response = await axios.post('/member/new', {
+                    const response = await axios.post('http://35.216.73.185:8080/member/new', {
                         name: data.name,
                         email: data.email,
                         password: data.password
@@ -40,7 +40,7 @@ function RegisterPage() {
                             'Content-Type': 'application/json'
                         }
                     })
-                    //console.log(response);
+                    console.log(response);
                 } catch (error) {
                     console.log(error);
                 }

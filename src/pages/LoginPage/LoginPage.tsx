@@ -22,7 +22,7 @@ function LoginPage() {
 		//console.log("Backend에 전송");
 		const postLogin = async () => {
 			try {
-				const response = await axios.post('/member/login', {
+				const response = await axios.post('http://35.216.73.185:8080/member/login', {
 					email: data.email,
 					password: data.password
 				}, {

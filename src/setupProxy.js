@@ -10,11 +10,11 @@ module.exports = function (app) {
 	//     })
 	// );
 
-	app.use(
-		"/member",
-		createProxyMiddleware({
-			target: "http://35.216.73.185:8080",
-			changeOrigin: true,
-		})
-	);
+	// app.use(
+	// 	"/member",
+	// 	createProxyMiddleware({
+	// 		target: "http://35.216.73.185:8080",
+	// 		changeOrigin: true,
+	// 	})
+	// );
 };
