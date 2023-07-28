@@ -6,7 +6,6 @@
 }
 
 .stars__wrapper{
-    background-color: beige;
     width: 410px;
     height: 96px;
 
@@ -16,8 +15,6 @@
 }
 
 .star__wrapper{
-    background-color: blue;
-
     width: 78px;
     height: 96px;
 
@@ -66,7 +63,6 @@
 }
 
 .star__message__wrapper{
-    background-color: lightgoldenrodyellow;
     height: 24px;
 
     margin-left: 60px;
