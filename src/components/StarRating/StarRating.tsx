@@ -25,7 +25,7 @@ function StarRating({rating}:StarRatingProps){
 
     return (<div className={styles.star__container}>
         <div className={styles.stars__wrapper}>
-            {[0, 2, 4, 6, 8].map((i) => <>
+            {[0, 2, 4, 6, 8].map((i) => <div key={i}>
                 <div className={styles.star__wrapper}>
                     <div className={styles.star__inner__wrapper}>
                         {(hoveredItem && i + 1 <= hoveredItem) || (clickedItem && i + 1 <= clickedItem) ? <>
@@ -63,7 +63,7 @@ function StarRating({rating}:StarRatingProps){
                             </div></>
                         }
                     </div>
-                </div></>)}
+                </div></div>)}
         </div>
         <div className={styles.star__message__wrapper}>
             {!clickedItem ? "평가하기" :
