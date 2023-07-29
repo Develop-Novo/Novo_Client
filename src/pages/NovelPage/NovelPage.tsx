@@ -2,12 +2,62 @@ import React, { useEffect, useState } from "react";
 import styles from "./NovelPage.module.css";
 import StarRating from "../../components/StarRating/StarRating";
 import StarRatingChart from "../../components/StarRatingChart/StarRatingChart";
+import axios from "axios";
 
+interface INovel{
+    ageRating: string;
+    genre: string;
+    id: number;
+    introduction: string;
+    keyword: string[];
+    platform: string;
+    price: string;
+    publishedAt: string;
+    rating: number;
+    serialDay: string;
+    title: string;
+    writer: string;
+}
 function NovelPage() {
+    const [novel, setNovel] = useState<INovel | null>(null);
+    const [rating, setRating] = useState<any>(null);
     const [clickedItem, setClickedItem] = useState<number | null>(null);
-    const keywords = ["회귀자물", "루프물", "판타지", "현대", "세계관 최강자", "먼치킨", "얼굴맛집"];
 
-    return (<>
+    useEffect(()=>{
+        const getNovel = async () => {
+			try {
+				const response = await axios.get('http://35.216.73.185:8080/content/id/1', {
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+				return response.data;
+			} catch (error) {
+				console.log(error);
+			}
+		};
+        // const getRating = async () => {
+		// 	try {
+		// 		const response = await axios.get('http://35.216.73.185:8080/star/id/1', {
+		// 			headers: {
+		// 				'Content-Type': 'application/json'
+		// 			}
+		// 		})
+		// 		return response.data;
+		// 	} catch (error) {
+		// 		console.log(error);
+		// 	}
+		// };
+
+        getNovel().then((res) => {
+            setNovel(res.data);
+        });
+        // getRating().then((res)=>{
+        //     console.log(res);
+        // })
+    },[]);
+
+    return (novel && <>
         <div className={styles.container__wrapper}>
             <div className={styles.container}>
                 <div className={styles.novel__info__wrapper}>
@@ -22,7 +72,7 @@ function NovelPage() {
                         <div className={styles.novel__contents__r1}>
                             <StarRating rating={clickedItem} />
                             <div className={styles.novel__contents__rating}>
-                                ★ 9.2
+                                ★ {novel.rating}
                             </div>
                             <button className={styles.novel__contents__button__comment}>
                                 <div className={styles.novel__contents__button__comment__text}>
@@ -38,7 +88,7 @@ function NovelPage() {
                                     작품 키워드
                                 </div>
                                 <div className={styles.novel__contents__keywords}>
-                                    {keywords.map((keyword) => <div key={keyword} className={styles.novel__contents__keyword}>
+                                    {novel.keyword.map((keyword) => <div key={keyword} className={styles.novel__contents__keyword}>
                                         <div className={styles.novel__contents__keyword__text}>
                                             {`${keyword}`}
                                         </div>
