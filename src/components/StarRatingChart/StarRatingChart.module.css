@@ -39,7 +39,7 @@
     color: #000000;
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-end;
 }
 
@@ -55,7 +55,7 @@
     color: #000000;
 
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: flex-end;
 }
 

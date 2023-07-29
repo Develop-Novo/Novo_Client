@@ -18,10 +18,21 @@ interface INovel{
     title: string;
     writer: string;
 }
+interface IRating{
+    star: number;
+    contentId: number;
+    memberId: number;
+    id: number;
+}
+interface IStarRating{
+    count: number;
+    data: IRating[];
+}
 function NovelPage() {
     const [novel, setNovel] = useState<INovel | null>(null);
-    const [rating, setRating] = useState<any>(null);
-    const [clickedItem, setClickedItem] = useState<number | null>(null);
+    const [starRating, setStarRating] = useState<IStarRating | null>(null);
+    const [myRating, setMyRating] = useState<IRating | null>(null);
+    const [ratingsArr, setRatingsArr] = useState<number[]>([0,0,0,0,0,0,0,0,0,0]);
 
     useEffect(()=>{
         const getNovel = async () => {
@@ -36,28 +47,49 @@ function NovelPage() {
 				console.log(error);
 			}
 		};
-        // const getRating = async () => {
-		// 	try {
-		// 		const response = await axios.get('http://35.216.73.185:8080/star/id/1', {
-		// 			headers: {
-		// 				'Content-Type': 'application/json'
-		// 			}
-		// 		})
-		// 		return response.data;
-		// 	} catch (error) {
-		// 		console.log(error);
-		// 	}
-		// };
-
+        const getAllRating = async () => {
+			try {
+				const response = await axios.get('http://35.216.73.185:8080/star/contentId/1', {
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+				return response.data;
+			} catch (error) {
+				console.log(error);
+			}
+		};
+        function countStars(arr:IRating[]) {
+            // 1부터 10까지의 개수를 저장할 배열 초기화
+            const starCounts = Array(10).fill(0);
+          
+            // 입력 배열을 순회하면서 star 값이 1부터 10까지인 요소를 카운트
+            arr.forEach(item => {
+              const star = item.star;
+              if (star >= 1 && star <= 10) {
+                starCounts[star - 1] += 1;
+              }
+            });
+          
+            return starCounts;
+        }
+        function filterByMemberId(arr:IRating[], memberId:number) {
+            return arr.filter(item => item.memberId === memberId);
+        }
         getNovel().then((res) => {
             setNovel(res.data);
         });
-        // getRating().then((res)=>{
-        //     console.log(res);
-        // })
+        getAllRating().then((res)=>{
+            setStarRating(res);
+            setRatingsArr(countStars(res.data));
+            const tmp = filterByMemberId(res.data, 1)[0];
+            if (tmp !== undefined) {
+                setMyRating(tmp);
+            }
+        });
     },[]);
 
-    return (novel && <>
+    return (novel && starRating && <>
         <div className={styles.container__wrapper}>
             <div className={styles.container}>
                 <div className={styles.novel__info__wrapper}>
@@ -70,10 +102,7 @@ function NovelPage() {
                     </div>
                     <div className={styles.novel__contents}>
                         <div className={styles.novel__contents__r1}>
-                            <StarRating rating={clickedItem} />
-                            <div className={styles.novel__contents__rating}>
-                                ★ {novel.rating}
-                            </div>
+                            <StarRating myRating={myRating} />
                             <button className={styles.novel__contents__button__comment}>
                                 <div className={styles.novel__contents__button__comment__text}>
                                     코멘트 남기기
@@ -82,7 +111,11 @@ function NovelPage() {
                         </div>
                         <hr className={styles.novel__contents__hr} />
                         <div className={styles.novel__contents__r2}>
-                            <StarRatingChart ratings={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} />
+                            <StarRatingChart 
+                                ratings={ratingsArr}
+                                rating={novel.rating}
+                                count={starRating.count} />
+                            
                             <div className={styles.novel__contents__keywords__wrapper}>
                                 <div className={styles.novel__contents__keywords__title}>
                                     작품 키워드

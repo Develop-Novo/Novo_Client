@@ -73,3 +73,18 @@
     color: #707070;
     opacity: 1;
 }
+
+.rating {
+    margin-left: 84px;
+
+    /* Layout Properties */
+    width: 128px;
+    height: 48px;
+
+    /* UI Properties */
+    text-align: left;
+    font: normal normal bold 40px/48px Pretendard;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
