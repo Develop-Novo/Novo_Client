@@ -11,6 +11,7 @@ interface IData {
 
 function LoginPage() {
 	const [popupOpen, setPopupOpen] = useState(false);
+	const [popupMsg, setPopupMsg] = useState("");
 	////////////////
 	const {
 		register,
@@ -30,8 +31,10 @@ function LoginPage() {
 						'Content-Type': 'application/json'
 					}
 				})
+				setPopupMsg("로그인이 완료되었습니다!");
 				console.log(response);
 			} catch (error) {
+				setPopupMsg("비밀번호가 일치하지 않습니다.");
 				console.log(error);
 			}
 		};
@@ -144,7 +147,7 @@ function LoginPage() {
 				{popupOpen && <>
 					<div className={styles.cover} onClick={() => setPopupOpen(false)} />
 					<div className={styles.popup}>
-						<div className={styles.success__message}>로그인이 완료되었습니다!</div>
+						<div className={styles.success__message}>{popupMsg}</div>
 						<div className={styles.popup__hr} />
 						<span className={styles.popup__button} onClick={() => setPopupOpen(false)}>닫기</span>
 					</div>
