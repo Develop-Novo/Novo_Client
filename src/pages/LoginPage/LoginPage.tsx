@@ -18,7 +18,9 @@ function LoginPage() {
 		handleSubmit,
 		formState: { errors },
 		setError,
-	} = useForm<IData>();
+		watch
+	} = useForm<IData>({ mode: "onChange" });
+
 	const onValid = (data: IData) => {
 		//console.log("Backend에 전송");
 		const postLogin = async () => {
@@ -56,15 +58,20 @@ function LoginPage() {
 							alt="novo__logo"
 						/>
 						<h1 id={styles.form__title}>로그인</h1>
-						<input
-							className={styles.input}
-							id={styles.input__email}
-							{...register("email", {
-								required: "정확하지 않은 아이디입니다.",
-							})}
-							placeholder="이메일"
-							type="email"
-						/>
+						<div
+							className={styles.input__wrapper}
+							id={styles.input__wrapper__email}>
+							<input
+								className={styles.input}
+								{...register("email", {
+									required: "정확하지 않은 아이디입니다.",
+								})}
+								placeholder="이메일"
+								type="email"
+							/>
+							{errors?.email ? <div className={styles.input__error}>☒</div> :
+								watch('email')&&(watch('email')?.length!==0) ? <div className={styles.input__valid}>☑</div> : null}
+						</div>
 						{errors?.email && (
 							<div
 								className={styles.error__message}
@@ -73,20 +80,23 @@ function LoginPage() {
 								{errors?.email?.message}
 							</div>
 						)}
-						<input
-							className={styles.input}
-							id={styles.input__password}
-							{...register("password", {
-								required: "정확하지 않은 비밀번호입니다.",
-								minLength: {
-									value: 6,
-									message:
-										"비밀번호는 최소 6자리 이상입니다.",
-								},
-							})}
-							placeholder="비밀번호"
-							type="password"
-						/>
+						<div
+							className={styles.input__wrapper}
+							id={styles.input__wrapper__password}>
+							<input
+								className={styles.input}
+								{...register("password", { required: "정확하지 않은 비밀번호입니다.",
+									minLength: {
+										value: 6,
+										message:
+											"비밀번호는 최소 6자리 이상입니다.",
+									}, })}
+								placeholder="비밀번호"
+								type="password"
+							/>
+							{errors?.password ? <div className={styles.input__error}>☒</div> :
+								watch('password')&&(watch('password')?.length!==0) ? <div className={styles.input__valid}>☑</div> : null}
+						</div>
 						{errors?.password && (
 							<div
 								className={styles.error__message}
