@@ -17,37 +17,29 @@ function RegisterPage() {
     //regex/////////
     const regex = /^(?=.*[A-Za-z])(?=.*\d|.*[\W_]).{6,}$/;
     ////////////////
-    const { register, handleSubmit, formState: { errors }, setError } = useForm<IData>();
+    const { register, handleSubmit, formState: { errors }, watch } = useForm<IData>({ mode: "onChange" });
     const onValid = (data: IData) => {
         console.log(data.password);
         console.log(regex.test(data.password));
-        if (!regex.test(data.password)) {
-            setError(
-                "password", //에러 이름. 기존에 있는 것과 겹칠시 그쪽으로 에러 들어감
-                { message: "비밀번호는 영문, 숫자, 특수문자 중 2개 이상을 조합하여 최소 6자리 이상이어야 합니다." }, //errors에 넣을 에러 메시지
-                { shouldFocus: true } //에러 발생시 해당 구간에 포커스하게 하는 설정
-            );
-        } else {
-            //console.log("Backend에 전송");
-            const postMember = async () => {
-                try {
-                    const response = await axios.post('http://35.216.73.185:8080/member/new', {
-                        name: data.name,
-                        email: data.email,
-                        password: data.password
-                    }, {
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                    console.log(response);
-                } catch (error) {
-                    console.log(error);
-                }
-            };
-            postMember();
-            setPopupOpen(true);
-        }
+        //console.log("Backend에 전송");
+        const postMember = async () => {
+            try {
+                const response = await axios.post('http://35.216.73.185:8080/member/new', {
+                    name: data.name,
+                    email: data.email,
+                    password: data.password
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                console.log(response);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        postMember();
+        setPopupOpen(true);
     }
 
     return <>
@@ -58,23 +50,50 @@ function RegisterPage() {
                     <h1 id={styles.form__title}>
                         회원가입
                     </h1>
-                    <input className={styles.input} id={styles.input__name}
-                        {...register("name", { required: "정확하지 않은 이름입니다." })}
-                        placeholder="이름"
-                        type="text"
-                    />
+                    <div
+                        className={styles.input__wrapper}
+                        id={styles.input__wrapper__name}>
+                        <input className={styles.input}
+                            {...register("name", { required: "정확하지 않은 이름입니다." })}
+                            placeholder="이름"
+                            type="text"
+                        />
+                        {errors?.name ? <div className={styles.input__error}>☒</div> :
+                            watch('name') && (watch('name')?.length !== 0) ? <div className={styles.input__valid}>☑</div> : null}
+
+                    </div>
                     {errors?.name && <div className={styles.error__message} id={styles.error__message__name}>{errors?.name?.message}</div>}
-                    <input className={styles.input} id={styles.input__email}
-                        {...register("email", { required: "정확하지 않은 이메일입니다." })}
-                        placeholder="이메일"
-                        type="email"
-                    />
+
+                    <div
+                        className={styles.input__wrapper}
+                        id={styles.input__wrapper__email}>
+                        <input className={styles.input} id={styles.input__email}
+                            {...register("email", { required: "정확하지 않은 이메일입니다." })}
+                            placeholder="이메일"
+                            type="email"
+                        />
+                        {errors?.email ? <div className={styles.input__error}>☒</div> :
+                            watch('email') && (watch('email')?.length !== 0) ? <div className={styles.input__valid}>☑</div> : null}
+
+                    </div>
                     {errors?.email && <div className={styles.error__message} id={styles.error__message__email}>{errors?.email?.message}</div>}
-                    <input className={styles.input} id={styles.input__password}
-                        {...register("password", { required: "정확하지 않은 비밀번호입니다." })}
-                        placeholder="비밀번호"
-                        type="password"
-                    />
+
+                    <div
+                        className={styles.input__wrapper}
+                        id={styles.input__wrapper__password}>
+                        <input className={styles.input} id={styles.input__password}
+                            {...register("password", 
+                            { required: "정확하지 않은 비밀번호입니다.",
+                            pattern:{
+                                value: /^(?=.*[A-Za-z])(?=.*\d|.*[\W_]).{6,}$/,
+                                message: '비밀번호는 영문, 숫자, 특수문자 중 2개 이상을 조합하여 최소 6자리 이상이어야 합니다.',
+                            } })}
+                            placeholder="비밀번호"
+                            type="password"
+                        />
+                        {errors?.password ? <div className={styles.input__error}>☒</div> :
+                            watch('password') && (watch('password')?.length !== 0) ? <div className={styles.input__valid}>☑</div> : null}
+                    </div>
                     {errors?.password && <div className={styles.error__message} id={styles.error__message__password}>{errors?.password?.message}</div>}
                     <button className={styles.button__submit} type="submit">
                         <div className={styles.button__submit__text}>
