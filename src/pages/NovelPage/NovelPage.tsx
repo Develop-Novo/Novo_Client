@@ -4,6 +4,7 @@ import StarRating from "../../components/StarRating/StarRating";
 import StarRatingChart from "../../components/StarRatingChart/StarRatingChart";
 import Comment from "../../components/Comment/Comment";
 import axios from "axios";
+import Footer from "../../components/Footer/Footer";
 
 interface INovel {
 	ageRating: string;
@@ -229,6 +230,7 @@ function NovelPage() {
 						</div>
 					</div>
 				</div>
+				<Footer />
 			</>
 		)
 	);

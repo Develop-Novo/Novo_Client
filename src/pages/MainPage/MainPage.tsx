@@ -176,7 +176,9 @@ const MainPage = () => {
 				</span>
 
 				{rankingList.map((item, index) => (
-					<Ranking key={index} rankingProps={item} />
+					<a href="/novel">
+						<Ranking key={index} rankingProps={item} />
+					</a>
 				))}
 				<Footer />
 			</>
