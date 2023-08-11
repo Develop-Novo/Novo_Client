@@ -1,165 +1,244 @@
 body {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .container__wrapper {
-    width: 100vw;
-    min-width: 1920px;
-    min-height: 2636px;
+	width: 100vw;
+	min-width: 1920px;
+	min-height: 2636px;
 
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .container {
-    position: relative;
-    /* Layout Properties */
-    top: 0px;
-    left: 0px;
-    width: 1920px;
-    height: 2636px;
+	position: relative;
+	/* Layout Properties */
+	top: 0px;
+	left: 0px;
+	width: 1920px;
+	height: 2636px;
 
-    /* UI Properties */
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    opacity: 1;
+	/* UI Properties */
+	background: #ffffff 0% 0% no-repeat padding-box;
+	opacity: 1;
 }
 
 .novel__info__wrapper {
-    width: 100%;
+	width: 100%;
 
-    display: flex;
+	display: flex;
 }
 
 .novel__cover {
-    margin-top: 72px;
+	margin-top: 72px;
 
-    margin-left: 220px;
+	margin-left: 220px;
 
-    width: 380px;
-    height: 555px;
+	width: 380px;
+	height: 555px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .novel__cover__img {
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 
-    border-radius: 4px;
+	border-radius: 4px;
 }
 
 .novel__contents {
-    margin-top: 64px;
+	margin-top: 64px;
 
-    width: 1064px;
+	width: 1064px;
 
-    width: 1064px;
-    margin-left: 36px;
-    margin-right: 220px;
+	width: 1064px;
+	margin-left: 36px;
+	margin-right: 220px;
 }
 
 .novel__contents__r1 {
-    height: 96px;
+	height: 96px;
 
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 .novel__contents__button__comment {
-    margin-left: 72px;
+	margin-left: 72px;
 
-    /* Layout Properties */
-    width: 220px;
-    height: 72px;
+	/* Layout Properties */
+	width: 220px;
+	height: 72px;
 
-    /* UI Properties */
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 2px solid #FF6B01;
-    border-radius: 4px;
-    opacity: 1;
+	/* UI Properties */
+	background: #ffffff 0% 0% no-repeat padding-box;
+	border: 2px solid #ff6b01;
+	border-radius: 4px;
+	opacity: 1;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .novel__contents__button__comment__text {
-    /* Layout Properties */
-    width: 123px;
-    height: 29px;
+	/* Layout Properties */
+	width: 123px;
+	height: 29px;
 
-    /* UI Properties */
-    text-align: left;
-    font: normal normal bold 24px/29px Pretendard;
-    letter-spacing: -1.2px;
-    color: #FF6B01;
-    opacity: 1;
+	/* UI Properties */
+	text-align: left;
+	font: normal normal bold 24px/29px Pretendard;
+	letter-spacing: -1.2px;
+	color: #ff6b01;
+	opacity: 1;
 }
 
 .novel__contents__hr {
-    width: 1064px;
-    margin-top: 32px;
+	width: 1064px;
+	margin-top: 32px;
 }
 
 .novel__contents__r2 {
-    margin-top: 36px;
+	margin-top: 36px;
 
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 .novel__contents__keywords__wrapper {
-    width: 355px;
-    height: 400px;
-    border-radius: 4px;
-    padding: 24px;
-    margin-left: 114px;
+	width: 355px;
+	height: 400px;
+	border-radius: 4px;
+	padding: 24px;
+	margin-left: 114px;
 }
 
 .novel__contents__keywords__title {
-    width: 103px;
-    height: 29px;
+	width: 103px;
+	height: 29px;
 
-    text-align: left;
-    font: normal normal bold 24px/29px Pretendard;
-    letter-spacing: -1.2px;
+	text-align: left;
+	font: normal normal bold 24px/29px Pretendard;
+	letter-spacing: -1.2px;
 }
 
-.novel__contents__keywords{
-    margin-top: 28px;
+.novel__contents__keywords {
+	margin-top: 28px;
 
-    display: flex;
-    flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 }
 
-.novel__contents__keyword{
-    margin-right: 12px;
-    margin-bottom: 16px;
+.novel__contents__keyword {
+	margin-right: 12px;
+	margin-bottom: 16px;
 
-    padding: 12px 20px;
+	padding: 12px 20px;
 
-    /* UI Properties */
-    background: #EBEBEB 0% 0% no-repeat padding-box;
-    border-radius: 4px;
-    opacity: 1;
+	/* UI Properties */
+	background: #ebebeb 0% 0% no-repeat padding-box;
+	border-radius: 4px;
+	opacity: 1;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.novel__contents__keyword__text{
-    height: 24px;
+.novel__contents__keyword__text {
+	height: 24px;
 
-    text-align: left;
-    font: normal normal normal 20px/24px Pretendard;
-    letter-spacing: 0px;
-    color: #000000;
+	text-align: left;
+	font: normal normal normal 20px/24px Pretendard;
+	letter-spacing: 0px;
+	color: #000000;
+}
+
+.novel__comment__wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: left;
+	margin: 117px 220px;
+}
+
+.novel__comment__info {
+	margin-right: auto;
+	margin-bottom: 28px;
+}
+
+.novel__comment__title,
+.novel__basic_info__title {
+	margin-right: 20px;
+	text-align: left;
+	font: normal normal bold 28px/34px Pretendard;
+	letter-spacing: -1.4px;
+	color: #000000;
+}
+
+.novel__comment__count {
+	text-align: left;
+	font: normal normal normal 28px/34px Pretendard;
+	letter-spacing: -1.4px;
+	color: #ff6b01;
+	opacity: 1;
+}
+
+.novel__comments {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.novel__comment__more {
+	position: absolute;
+	top: 815px;
+	left: 1659px;
+	text-align: left;
+	font: normal normal normal 16px/19px Pretendard;
+	letter-spacing: 0px;
+	color: #ff6b01;
+	opacity: 1;
+}
+
+.novel__basic_info__wrapper {
+	text-align: left;
+}
+
+.novel__basic_info {
+	display: flex;
+}
+
+.novel__basic_info__category,
+.novel__basic_info__contents {
+	width: auto;
+	height: 240px;
+	margin-top: 28px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: left;
+	font: normal normal normal 20px/24px Pretendard;
+	letter-spacing: 0px;
+	color: #707070;
+}
+
+.novel__basic_info__category {
+	margin-right: 28px;
+	margin-left: 220px;
+}
+
+.novel__basic_info__title {
+	margin-left: 220px;
 }

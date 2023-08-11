@@ -1,0 +1,72 @@
+.comment__container {
+	width: 355px;
+
+	border-radius: 4px;
+	background-color: #ebebeb;
+}
+
+.comment__writer__info {
+	display: flex;
+	align-items: center;
+}
+
+.comment__writer__avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin: 20px 16px;
+}
+
+.comment__writer__name {
+	width: 201px;
+	height: 24px;
+	margin-right: 16px;
+	text-align: left;
+	font: normal normal normal 20px/24px Pretendard;
+	letter-spacing: 0px;
+	color: #000000;
+	opacity: 1;
+}
+
+.comment__writer__score {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 33px;
+	height: 23px;
+	background-color: white;
+	border-radius: 15px;
+	padding: 5px 9px;
+	color: #707070;
+}
+
+.comment__content {
+	width: 323px;
+	height: 140px;
+	margin: 0 16px;
+	padding: 24px 0;
+	border-top: 2px solid #dbd9d9;
+	border-bottom: 2px solid #dbd9d9;
+	text-align: center;
+	font: normal normal normal 20px/26px Pretendard;
+	letter-spacing: 0px;
+	color: #000000;
+}
+
+.comment__reaction {
+	display: flex;
+	align-items: center;
+	margin: 22px 16px;
+	padding-bottom: 25px;
+}
+
+.comment__reaction > span {
+	display: flex;
+	align-items: center;
+	margin-right: 28px;
+	font-size: 18px;
+}
+
+.reaction_icon {
+	margin-right: 8px;
+}
