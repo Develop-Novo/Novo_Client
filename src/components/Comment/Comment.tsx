@@ -3,19 +3,35 @@ import styles from "./Comment.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
-const Comment: React.FC = ({}) => {
+
+interface CommentProps {
+	writerName: string;
+	writerImg: string;
+	commentRating: number;
+	commentContent: string;
+	commentComment: number;
+	commentLikes: number;
+}
+
+const Comment: React.FC<{ commentProps: CommentProps }> = ({
+	commentProps,
+}) => {
 	return (
 		<div className={styles.comment__container}>
 			<div className={styles.comment__writer__info}>
 				<img
-					src="../images/default_user__icon.png"
+					src={commentProps.writerImg}
 					className={styles.comment__writer__avatar}
 				/>
-				<span className={styles.comment__writer__name}>연글술사</span>
-				<span className={styles.comment__writer__score}>★ 8</span>
+				<span className={styles.comment__writer__name}>
+					{commentProps.writerName}
+				</span>
+				<span className={styles.comment__rating}>
+					★ {commentProps.commentRating}
+				</span>
 			</div>
 			<div className={styles.comment__content}>
-				코멘트입니다코멘트입니다코멘트입니다코멘트입니다코멘트입니다코멘트입니다코멘트입니다코멘트입니다코멘트입니다
+				{commentProps.commentContent}
 			</div>
 			<div className={styles.comment__reaction}>
 				<span>
@@ -27,7 +43,7 @@ const Comment: React.FC = ({}) => {
 						}}
 						className={styles.reaction_icon}
 					/>
-					54
+					{commentProps.commentComment}
 				</span>
 				<span>
 					<FontAwesomeIcon
@@ -39,7 +55,7 @@ const Comment: React.FC = ({}) => {
 						}}
 						className={styles.reaction_icon}
 					/>
-					54
+					{commentProps.commentLikes}
 				</span>
 			</div>
 		</div>

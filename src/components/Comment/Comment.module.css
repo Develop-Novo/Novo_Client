@@ -28,7 +28,7 @@
 	opacity: 1;
 }
 
-.comment__writer__score {
+.comment__rating {
 	display: flex;
 	align-items: center;
 	justify-content: center;

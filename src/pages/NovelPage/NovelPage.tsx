@@ -180,7 +180,7 @@ function NovelPage() {
 							<div className={styles.novel__comment__info}>
 								<span className={styles.novel__comment__title}>
 									코멘트
-								</span>{" "}
+								</span>
 								<span className={styles.novel__comment__count}>
 									100+
 								</span>
@@ -190,7 +190,14 @@ function NovelPage() {
 							</div>
 
 							<div className={styles.novel__comments}>
-								<Comment />
+								<Comment
+									writerName="string"
+									writerImg="string"
+									commentRating={8}
+									commentContent="ss"
+									commentComment={9}
+									commentLikes={4}
+								/>
 								<Comment />
 								<Comment />
 								<Comment />
