@@ -5,6 +5,7 @@ import StarRatingChart from "../../components/StarRatingChart/StarRatingChart";
 import Comment from "../../components/Comment/Comment";
 import axios from "axios";
 import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
 
 interface INovel {
   ageRating: string;
@@ -40,6 +41,7 @@ function NovelPage() {
   const [ratingsArr, setRatingsArr] = useState<number[]>([
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
   ]);
+  console.log(novel);
 
   console.log(novel, starRating, myRating);
   useEffect(() => {
@@ -109,6 +111,29 @@ function NovelPage() {
       <>
         <div className={styles.container__wrapper}>
           <div className={styles.container}>
+            <div className={styles.novel__banner__wrapper}>
+              <div
+                className={styles.novel__banner__background}
+                style={{ backgroundImage: `url(${novel.detailImg})` }}
+              >
+                <div className={styles.novel__banner__info}>
+                  <div className={styles.novel__banner__info__title}>
+                    {novel.title}
+                  </div>
+                  <div className={styles.novel__banner__info__genre}>
+                    {novel.genre}
+                  </div>
+                  <div className={styles.novel__banner__info__introduction}>
+                    {novel.introduction}
+                  </div>
+                  <button
+                    className={styles.novel__banner__info__btn}
+                    style={{ backgroundImage: `url('images/joara__btn.jpg')` }}
+                  ></button>
+                </div>
+                <Header />
+              </div>
+            </div>
             <div className={styles.novel__info__wrapper}>
               <div className={styles.novel__cover}>
                 <img
@@ -167,16 +192,18 @@ function NovelPage() {
 
               <div className={styles.novel__comments}>
                 <Comment
-                  writerName="string"
-                  writerImg="string"
-                  commentRating={8}
-                  commentContent="ss"
-                  commentComment={9}
-                  commentLikes={4}
+                  commentProps={{
+                    writerName: "string",
+                    writerImg: "string",
+                    commentRating: 8,
+                    commentContent: "ss",
+                    commentComment: 9,
+                    commentLikes: 4,
+                  }}
                 />
+                {/* <Comment />
                 <Comment />
-                <Comment />
-                <Comment />
+                <Comment /> */}
               </div>
             </div>
             <div className={styles.novel__basic_info__wrapper}>
@@ -201,9 +228,9 @@ function NovelPage() {
                 </div>
               </div>
             </div>
+            <Footer />
           </div>
         </div>
-        <Footer />
       </>
     )
   );

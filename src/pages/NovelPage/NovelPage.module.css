@@ -25,6 +25,104 @@ body {
 	opacity: 1;
 }
 
+.novel__banner__wrapper{
+	width: 100%;
+	height: 680px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: relative;
+}
+
+.novel__banner__background{
+	width: 1920px;
+	height: 680px;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.novel__banner__info{
+	height: 100%;
+
+	position: absolute;
+
+	
+	top: 0;
+	left: 0;
+	background: transparent linear-gradient(90deg, #000000 0%, #2B2428 35%, #5D606410 100%) 0% 0% no-repeat padding-box;
+}
+
+.novel__banner__info__title{
+	/* Layout Properties */
+	margin-top: 140px;
+	margin-left: 220px;
+	max-width: 665px;
+	height: 196px;
+
+	/* UI Properties */
+	font: normal normal bold 78px/102px Pretendard;
+	letter-spacing: 0px;
+	color: #FFFFFF;
+	opacity: 1;
+}
+
+.novel__banner__info__genre{
+	/* Layout Properties */
+	margin-top: 28px;
+	margin-left: 220px;
+	max-width: 665px;
+	height: 34px;
+
+	/* UI Properties */
+	text-align: left;
+	font: normal normal normal 28px/34px Pretendard;
+	letter-spacing: 0px;
+	color: #707070;
+	opacity: 1;
+}
+
+
+.novel__banner__info__introduction{
+	/* Layout Properties */
+	margin-top: 24px;
+	margin-left: 220px;
+	max-width: 655px;
+	height: 50px;
+
+	/* UI Properties */
+	text-align: left;
+	font: normal normal normal 20px/26px Pretendard;
+	letter-spacing: 0px;
+	color: #FFFFFF;
+	text-shadow: 0px 1px 1px #00000082;
+	opacity: 1;
+  	
+	display: -webkit-box;
+	-webkit-line-clamp: 2; /* 표시할 줄 수 */
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis; /* 오버플로우된 부분에 ... 표시 */
+}
+
+.novel__banner__info__btn{
+	margin-top: 28px;
+	margin-left: 220px;
+	width: 300px;
+	height: 70px;
+
+	border-radius: 4px;
+	opacity: 1;
+
+	background-size:contain;
+	background-color: transparent;
+	border: none;
+	padding: 10px 20px;
+	cursor: pointer;
+}
+
 .novel__info__wrapper {
 	width: 100%;
 
