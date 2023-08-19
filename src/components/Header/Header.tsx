@@ -18,9 +18,14 @@ function Header({ normal }: IHeader) {
           <img src="../images/novo__logo__white.png" className={styles.logo} />
         )}
       </span>
-      <span className={styles.search}>
+      <span className={normal ? styles.search : styles.search__transparent}>
         <img src="../images/search__icon.png" className={styles.search_icon} />
-        <input type="text" className={styles.search_input} />
+        <input
+          type="text"
+          className={
+            normal ? styles.search_input : styles.search_input__transparent
+          }
+        />
       </span>
       <span className={styles.icons}>
         {normal ? (

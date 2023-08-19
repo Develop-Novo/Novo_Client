@@ -117,12 +117,11 @@ body {
 	cursor: pointer;
 
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 }
 
 .novel__banner__info__btn__icon{
-	margin-left: 37px;
 	width: 40px;
 	height: 40px;
 	/* UI Properties */
@@ -131,7 +130,7 @@ body {
 }
 
 .novel__banner__info__btn__text{
-	margin-left: 4px;
+
 }
 
 #naver__series{
@@ -140,7 +139,7 @@ body {
 }
 
 #naver__series__text{
-	width: 182px;
+	margin-left: 4px;
 	height: 24px;
 	font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
 	letter-spacing: var(--unnamed-character-spacing-0);
@@ -158,6 +157,7 @@ body {
 }
 
 #kakao__page__text{
+	margin-left: 4px;
 	width: 178px;
 	height: 24px;
 	font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
@@ -176,13 +176,16 @@ body {
 }
 
 #ridiBooks__text{
-	width: 142px;
+	margin-left: 4px;
 	height: 24px;
 	font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
 	letter-spacing: var(--unnamed-character-spacing-0);
 	color: var(--unnamed-color-ffffff);
 	text-align: center;
-	font: normal normal 
+	font: normal normal bold 20px/24px Pretendard;
+	letter-spacing: 0px;
+	color: #FFFFFF;
+	opacity: 1;
 }
 
 #munpia{
@@ -190,6 +193,7 @@ body {
 }
 
 #munpia__text{
+	margin-left: 8px;
 	width: 126px;
 	height: 24px;
 	font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
@@ -208,6 +212,7 @@ body {
 }
 
 #joara__text{
+	margin-left: 4px;
 	width: 126px;
 	height: 24px;
 	/* UI Properties */

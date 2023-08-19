@@ -50,6 +50,18 @@ body {
 	margin-bottom: 12px;
 }
 
+.search__transparent{
+	width: 580px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	/* UI Properties */
+	background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	border-radius: 4px;
+	margin-top: 20px;
+	margin-bottom: 12px;
+}
 .search_icon {
 	height: 19.8px;
 	width: auto;
@@ -67,6 +79,16 @@ body {
 	left: 20px;
 }
 
+.search_input__transparent{
+	border: none;
+	height: 30px;
+	width: 90%;
+	font-size: medium;
+	position: relative;
+	left: 20px;
+	background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+}
 .top_icon {
 	width: 32px;
 	height: 32px;

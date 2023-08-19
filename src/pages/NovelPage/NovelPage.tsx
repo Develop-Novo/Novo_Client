@@ -47,7 +47,7 @@ function NovelPage() {
     const getNovel = async () => {
       try {
         const response = await axios.get(
-          "http://52.78.121.235:8080/content/id/1",
+          "http://52.78.121.235:8080/content/id/9",
           {
             headers: {
               "Content-Type": "application/json",
@@ -104,6 +104,7 @@ function NovelPage() {
     });
   }, []);
 
+  console.log(novel);
   return (
     novel &&
     starRating && (
@@ -164,7 +165,7 @@ function NovelPage() {
                             : novel.platform === "리디북스"
                             ? styles.ridiBooks__text
                             : novel.platform === "문피아"
-                            ? styles.munpia
+                            ? styles.munpia__text
                             : styles.joara__text
                         }
                       >
