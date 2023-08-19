@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./LoginPage.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 interface IData {
@@ -12,6 +12,7 @@ interface IData {
 function LoginPage() {
   const [popupOpen, setPopupOpen] = useState(false);
   const [popupMsg, setPopupMsg] = useState("");
+  const navigate = useNavigate();
   ////////////////
   const {
     register,
@@ -48,6 +49,10 @@ function LoginPage() {
     setPopupOpen(true);
   };
 
+  const closePopUp = () => {
+    setPopupOpen(false);
+    navigate("/main");
+  };
   return (
     <>
       <div className={styles.container__wrapper}>
@@ -162,14 +167,11 @@ function LoginPage() {
         </div>
         {popupOpen && (
           <>
-            <div className={styles.cover} onClick={() => setPopupOpen(false)} />
+            <div className={styles.cover} onClick={closePopUp} />
             <div className={styles.popup}>
               <div className={styles.success__message}>{popupMsg}</div>
               <div className={styles.popup__hr} />
-              <span
-                className={styles.popup__button}
-                onClick={() => setPopupOpen(false)}
-              >
+              <span className={styles.popup__button} onClick={closePopUp}>
                 닫기
               </span>
             </div>
