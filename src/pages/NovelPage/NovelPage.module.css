@@ -6,10 +6,12 @@ body {
 .container__wrapper {
 	width: 100vw;
 	min-width: 1920px;
-	min-height: 2636px;
+	min-height: calc(2636px + 344px);
 
 	display: flex;
 	justify-content: center;
+
+	overflow: hidden;
 }
 
 .container {
@@ -38,10 +40,6 @@ body {
 .novel__banner__background{
 	width: 1920px;
 	height: 680px;
-
-	position: absolute;
-	top: 0;
-	left: 0;
 }
 
 .novel__banner__info{
@@ -116,11 +114,111 @@ body {
 	border-radius: 4px;
 	opacity: 1;
 
-	background-size:contain;
-	background-color: transparent;
-	border: none;
-	padding: 10px 20px;
 	cursor: pointer;
+
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.novel__banner__info__btn__icon{
+	margin-left: 37px;
+	width: 40px;
+	height: 40px;
+	/* UI Properties */
+	background: transparent 0% 0% no-repeat padding-box;
+	opacity: 1;
+}
+
+.novel__banner__info__btn__text{
+	margin-left: 4px;
+}
+
+#naver__series{
+	background: var(--unnamed-color-00dc64) 0% 0% no-repeat padding-box;
+	background: #00DC64 0% 0% no-repeat padding-box;
+}
+
+#naver__series__text{
+	width: 182px;
+	height: 24px;
+	font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
+	letter-spacing: var(--unnamed-character-spacing-0);
+	color: var(--unnamed-color-000000);
+	text-align: center;
+	font: normal normal bold 20px/24px Pretendard;
+	letter-spacing: 0px;
+	color: #000000;
+	opacity: 1;
+}
+
+#kakao__page{
+	background: var(--unnamed-color-ffbc00) 0% 0% no-repeat padding-box;
+	background: #FFBC00 0% 0% no-repeat padding-box;
+}
+
+#kakao__page__text{
+	width: 178px;
+	height: 24px;
+	font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
+	letter-spacing: var(--unnamed-character-spacing-0);
+	color: var(--unnamed-color-000000);
+	text-align: center;
+	font: normal normal bold 20px/24px Pretendard;
+	letter-spacing: 0px;
+	color: #000000;
+	opacity: 1;
+}
+
+#ridiBooks{
+	background: var(--unnamed-color-1f9eff) 0% 0% no-repeat padding-box;
+	background: #1F9EFF 0% 0% no-repeat padding-box;
+}
+
+#ridiBooks__text{
+	width: 142px;
+	height: 24px;
+	font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
+	letter-spacing: var(--unnamed-character-spacing-0);
+	color: var(--unnamed-color-ffffff);
+	text-align: center;
+	font: normal normal 
+}
+
+#munpia{
+	background: transparent linear-gradient(180deg, #2C7EB9 0%, #2C7EB9 21%, #2B73A9 50%, #215D8D 79%, #215D8D 100%) 0% 0% no-repeat padding-box;
+}
+
+#munpia__text{
+	width: 126px;
+	height: 24px;
+	font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
+	letter-spacing: var(--unnamed-character-spacing-0);
+	color: var(--unnamed-color-ffffff);
+	text-align: center;
+	font: normal normal bold 20px/24px Pretendard;
+	letter-spacing: 0px;
+	color: #FFFFFF;
+	opacity: 1;
+}
+
+#joara{
+	background: var(--unnamed-color-1f449c) 0% 0% no-repeat padding-box;
+	background: #1F449C 0% 0% no-repeat padding-box;
+}
+
+#joara__text{
+	width: 126px;
+	height: 24px;
+	/* UI Properties */
+	font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
+	letter-spacing: var(--unnamed-character-spacing-0);
+	color: var(--unnamed-color-ffffff);
+	text-align: center;
+	font: normal normal bold 20px/24px Pretendard;
+	letter-spacing: 0px;
+	color: #FFFFFF;
+	opacity: 1;
 }
 
 .novel__info__wrapper {

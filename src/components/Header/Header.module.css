@@ -16,6 +16,16 @@ body {
 	border-bottom: 0.5px solid #c0c0c0;
 }
 
+#header__container__transparent{
+	display: flex;
+	justify-content: space-around;
+	top: 0px;
+	left: 0px;
+	width: 1920px;
+	background: transparent linear-gradient(180deg, #000000 0%, #00000000 100%) 0% 0% no-repeat padding-box;
+	opacity: 0.53;
+}
+
 #logo_container {
 	height: 72px;
 	display: flex;
@@ -60,6 +70,7 @@ body {
 .top_icon {
 	width: 32px;
 	height: 32px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1)
 }
 
 .icons {

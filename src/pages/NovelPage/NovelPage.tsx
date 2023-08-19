@@ -6,6 +6,7 @@ import Comment from "../../components/Comment/Comment";
 import axios from "axios";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
+import { Link } from "react-router-dom";
 
 interface INovel {
   ageRating: string;
@@ -41,9 +42,7 @@ function NovelPage() {
   const [ratingsArr, setRatingsArr] = useState<number[]>([
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
   ]);
-  console.log(novel);
 
-  console.log(novel, starRating, myRating);
   useEffect(() => {
     const getNovel = async () => {
       try {
@@ -126,12 +125,57 @@ function NovelPage() {
                   <div className={styles.novel__banner__info__introduction}>
                     {novel.introduction}
                   </div>
-                  <button
-                    className={styles.novel__banner__info__btn}
-                    style={{ backgroundImage: `url('images/joara__btn.jpg')` }}
-                  ></button>
+                  <Link to={novel.link}>
+                    <button
+                      className={styles.novel__banner__info__btn}
+                      id={
+                        novel.platform === "네이버 시리즈"
+                          ? styles.naver__series
+                          : novel.platform === "카카오 페이지"
+                          ? styles.kakao__page
+                          : novel.platform === "리디북스"
+                          ? styles.ridiBooks
+                          : novel.platform === "문피아"
+                          ? styles.munpia
+                          : styles.joara
+                      }
+                    >
+                      <img
+                        className={styles.novel__banner__info__btn__icon}
+                        src={
+                          novel?.platform === "네이버 시리즈"
+                            ? "./images/naverSeries__icon.png"
+                            : novel.platform === "카카오 페이지"
+                            ? "./images/kakaoPage__icon.png"
+                            : novel.platform === "리디북스"
+                            ? "./images/ridiBooks__icon.png"
+                            : novel.platform === "문피아"
+                            ? "./images/munpia__icon.png"
+                            : "./images/joara__icon.png"
+                        }
+                      />
+                      <div
+                        className={styles.novel__banner__info__btn__text}
+                        id={
+                          novel.platform === "네이버 시리즈"
+                            ? styles.naver__series__text
+                            : novel.platform === "카카오 페이지"
+                            ? styles.kakao__page__text
+                            : novel.platform === "리디북스"
+                            ? styles.ridiBooks__text
+                            : novel.platform === "문피아"
+                            ? styles.munpia
+                            : styles.joara__text
+                        }
+                      >
+                        {novel.platform === "카카오 페이지"
+                          ? "카카오페이지 보러가기"
+                          : `${novel.platform} 보러가기`}
+                      </div>
+                    </button>
+                  </Link>
                 </div>
-                <Header />
+                <Header normal={false} />
               </div>
             </div>
             <div className={styles.novel__info__wrapper}>
