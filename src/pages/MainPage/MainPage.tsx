@@ -27,8 +27,8 @@ const MainPage = () => {
 		async function fetchData() {
 			try {
 				const novels = [];
-
-				for (var contentId = 1; contentId < 6; contentId++) {
+				var rankingNum = 1;
+				for (var contentId = 7; contentId <= 16; contentId++) {
 					const response = await axios.get(
 						`http://52.78.121.235:8080/content/id/${contentId}`
 					);
@@ -36,11 +36,12 @@ const MainPage = () => {
 					const rankingData = {
 						novelTitle: response.data.data.title,
 						novelRating: response.data.data.rating,
-						rankingNum: response.data.data.id,
+						rankingNum: rankingNum,
 						novelImage: response.data.data.coverImg,
 					};
 
 					novels.push(rankingData);
+					rankingNum++;
 				}
 				setNovoNovels(novels);
 			} catch (error) {
@@ -50,6 +51,7 @@ const MainPage = () => {
 
 		fetchData();
 	}, []);
+	console.log(novoNovels);
 	//배너 작품 api연결
 	const [bannerList, setBannerList] = useState<BannerInfo[]>([]);
 
@@ -64,8 +66,7 @@ const MainPage = () => {
 					);
 
 					const bannerData = {
-						bannerImage:
-							"https://github.com/Develop-Novo/Novo_Client/assets/40304565/0a7532ab-ce13-4405-8a90-16a87ed02756",
+						bannerImage: response.data.data.detailImg,
 						bannerTitle: response.data.data.title,
 						bannerSubtitle: response.data.data.title,
 					};
@@ -175,9 +176,7 @@ const MainPage = () => {
 				</span>
 
 				{rankingList.map((item, index) => (
-					<a href="/novel">
-						<Ranking key={index} rankingProps={item} />
-					</a>
+					<Ranking key={index} rankingProps={item} />
 				))}
 				<Footer />
 			</>

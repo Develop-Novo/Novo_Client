@@ -76,7 +76,9 @@ const Ranking: React.FC<RankingProps> = ({ rankingProps }) => {
 								transition: "transform 0.3s ease-in-out",
 							}}
 						>
-							<Cover novelProps={novel} />
+							<a href="/novel">
+								<Cover novelProps={novel} />
+							</a>
 						</div>
 					))}
 				<span className={styles.cover_next_button}>
