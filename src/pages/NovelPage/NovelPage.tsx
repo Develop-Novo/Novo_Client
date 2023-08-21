@@ -43,6 +43,7 @@ interface CommentProps {
 	like_count: number;
 	createdAt: string;
 }
+
 function NovelPage() {
 	const [novel, setNovel] = useState<INovel | null>(null);
 	const [starRating, setStarRating] = useState<IStarRating | null>(null);
@@ -51,7 +52,6 @@ function NovelPage() {
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 	]);
 	const [comments, setComments] = useState<CommentProps[]>([]);
-	const [commentRating, setCommentRating] = useState<number[]>();
 
 	useEffect(() => {
 		const getNovel = async () => {
@@ -379,12 +379,12 @@ function NovelPage() {
 										styles.novel__basic_info__contents
 									}
 								>
-									<span>소설 | 현대판타지</span>
-									<span>월,화,수,목,금</span>
-									<span>JC미디어</span>
-									<span>전체이용가</span>
-									<span>100원/회차 당</span>
-									<span>슬로프</span>
+									<span>소설 | {novel.genre}</span>
+									<span>{novel.serialDay}</span>
+									<span>{novel.publishedAt}</span>
+									<span>{novel.ageRating}</span>
+									<span>{novel.price}</span>
+									<span>{novel.writer}</span>
 								</div>
 							</div>
 						</div>
