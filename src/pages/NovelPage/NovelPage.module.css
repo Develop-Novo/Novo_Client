@@ -27,7 +27,7 @@ body {
 	opacity: 1;
 }
 
-.novel__banner__wrapper{
+.novel__banner__wrapper {
 	width: 100%;
 	height: 680px;
 	display: flex;
@@ -37,23 +37,24 @@ body {
 	position: relative;
 }
 
-.novel__banner__background{
+.novel__banner__background {
 	width: 1920px;
 	height: 680px;
 }
 
-.novel__banner__info{
+.novel__banner__info {
 	height: 100%;
 
 	position: absolute;
 
-	
 	top: 0;
 	left: 0;
-	background: transparent linear-gradient(90deg, #000000 0%, #2B2428 35%, #5D606410 100%) 0% 0% no-repeat padding-box;
+	background: transparent
+		linear-gradient(90deg, #000000 0%, #2b2428 35%, #5d606410 100%) 0% 0%
+		no-repeat padding-box;
 }
 
-.novel__banner__info__title{
+.novel__banner__info__title {
 	/* Layout Properties */
 	margin-top: 140px;
 	margin-left: 220px;
@@ -63,11 +64,11 @@ body {
 	/* UI Properties */
 	font: normal normal bold 78px/102px Pretendard;
 	letter-spacing: 0px;
-	color: #FFFFFF;
+	color: #ffffff;
 	opacity: 1;
 }
 
-.novel__banner__info__genre{
+.novel__banner__info__genre {
 	/* Layout Properties */
 	margin-top: 28px;
 	margin-left: 220px;
@@ -82,8 +83,7 @@ body {
 	opacity: 1;
 }
 
-
-.novel__banner__info__introduction{
+.novel__banner__info__introduction {
 	/* Layout Properties */
 	margin-top: 24px;
 	margin-left: 220px;
@@ -94,10 +94,10 @@ body {
 	text-align: left;
 	font: normal normal normal 20px/26px Pretendard;
 	letter-spacing: 0px;
-	color: #FFFFFF;
+	color: #ffffff;
 	text-shadow: 0px 1px 1px #00000082;
 	opacity: 1;
-  	
+
 	display: -webkit-box;
 	-webkit-line-clamp: 2; /* 표시할 줄 수 */
 	-webkit-box-orient: vertical;
@@ -105,7 +105,7 @@ body {
 	text-overflow: ellipsis; /* 오버플로우된 부분에 ... 표시 */
 }
 
-.novel__banner__info__btn{
+.novel__banner__info__btn {
 	margin-top: 28px;
 	margin-left: 220px;
 	width: 300px;
@@ -121,7 +121,7 @@ body {
 	align-items: center;
 }
 
-.novel__banner__info__btn__icon{
+.novel__banner__info__btn__icon {
 	width: 40px;
 	height: 40px;
 	/* UI Properties */
@@ -129,19 +129,20 @@ body {
 	opacity: 1;
 }
 
-.novel__banner__info__btn__text{
-
+.novel__banner__info__btn__text {
 }
 
-#naver__series{
+#naver__series {
 	background: var(--unnamed-color-00dc64) 0% 0% no-repeat padding-box;
-	background: #00DC64 0% 0% no-repeat padding-box;
+	background: #00dc64 0% 0% no-repeat padding-box;
 }
 
-#naver__series__text{
+#naver__series__text {
 	margin-left: 4px;
 	height: 24px;
-	font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
+	font: var(--unnamed-font-style-normal) normal
+		var(--unnamed-font-weight-bold) var(--unnamed-font-size-20) /
+		var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
 	letter-spacing: var(--unnamed-character-spacing-0);
 	color: var(--unnamed-color-000000);
 	text-align: center;
@@ -151,16 +152,18 @@ body {
 	opacity: 1;
 }
 
-#kakao__page{
+#kakao__page {
 	background: var(--unnamed-color-ffbc00) 0% 0% no-repeat padding-box;
-	background: #FFBC00 0% 0% no-repeat padding-box;
+	background: #ffbc00 0% 0% no-repeat padding-box;
 }
 
-#kakao__page__text{
+#kakao__page__text {
 	margin-left: 4px;
 	width: 178px;
 	height: 24px;
-	font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
+	font: var(--unnamed-font-style-normal) normal
+		var(--unnamed-font-weight-bold) var(--unnamed-font-size-20) /
+		var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
 	letter-spacing: var(--unnamed-character-spacing-0);
 	color: var(--unnamed-color-000000);
 	text-align: center;
@@ -170,59 +173,74 @@ body {
 	opacity: 1;
 }
 
-#ridiBooks{
+#ridiBooks {
 	background: var(--unnamed-color-1f9eff) 0% 0% no-repeat padding-box;
-	background: #1F9EFF 0% 0% no-repeat padding-box;
+	background: #1f9eff 0% 0% no-repeat padding-box;
 }
 
-#ridiBooks__text{
+#ridiBooks__text {
 	margin-left: 4px;
 	height: 24px;
-	font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
+	font: var(--unnamed-font-style-normal) normal
+		var(--unnamed-font-weight-bold) var(--unnamed-font-size-20) /
+		var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
 	letter-spacing: var(--unnamed-character-spacing-0);
 	color: var(--unnamed-color-ffffff);
 	text-align: center;
 	font: normal normal bold 20px/24px Pretendard;
 	letter-spacing: 0px;
-	color: #FFFFFF;
+	color: #ffffff;
 	opacity: 1;
 }
 
-#munpia{
-	background: transparent linear-gradient(180deg, #2C7EB9 0%, #2C7EB9 21%, #2B73A9 50%, #215D8D 79%, #215D8D 100%) 0% 0% no-repeat padding-box;
+#munpia {
+	background: transparent
+		linear-gradient(
+			180deg,
+			#2c7eb9 0%,
+			#2c7eb9 21%,
+			#2b73a9 50%,
+			#215d8d 79%,
+			#215d8d 100%
+		)
+		0% 0% no-repeat padding-box;
 }
 
-#munpia__text{
+#munpia__text {
 	margin-left: 8px;
 	width: 126px;
 	height: 24px;
-	font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
+	font: var(--unnamed-font-style-normal) normal
+		var(--unnamed-font-weight-bold) var(--unnamed-font-size-20) /
+		var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
 	letter-spacing: var(--unnamed-character-spacing-0);
 	color: var(--unnamed-color-ffffff);
 	text-align: center;
 	font: normal normal bold 20px/24px Pretendard;
 	letter-spacing: 0px;
-	color: #FFFFFF;
+	color: #ffffff;
 	opacity: 1;
 }
 
-#joara{
+#joara {
 	background: var(--unnamed-color-1f449c) 0% 0% no-repeat padding-box;
-	background: #1F449C 0% 0% no-repeat padding-box;
+	background: #1f449c 0% 0% no-repeat padding-box;
 }
 
-#joara__text{
+#joara__text {
 	margin-left: 4px;
 	width: 126px;
 	height: 24px;
 	/* UI Properties */
-	font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
+	font: var(--unnamed-font-style-normal) normal
+		var(--unnamed-font-weight-bold) var(--unnamed-font-size-20) /
+		var(--unnamed-line-spacing-24) var(--unnamed-font-family-pretendard);
 	letter-spacing: var(--unnamed-character-spacing-0);
 	color: var(--unnamed-color-ffffff);
 	text-align: center;
 	font: normal normal bold 20px/24px Pretendard;
 	letter-spacing: 0px;
-	color: #FFFFFF;
+	color: #ffffff;
 	opacity: 1;
 }
 
@@ -398,7 +416,6 @@ body {
 .novel__comments {
 	position: relative;
 	display: flex;
-	justify-content: space-between;
 	width: 100%;
 }
 
@@ -411,6 +428,9 @@ body {
 	letter-spacing: 0px;
 	color: #ff6b01;
 	opacity: 1;
+}
+.novel__comment {
+	margin-right: 20px;
 }
 
 .novel__basic_info__wrapper {

@@ -5,7 +5,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 
 interface CommentProps {
-	writerName: string;
+	writerName: number;
 	writerImg: string;
 	commentRating: number;
 	commentContent: string;
@@ -43,7 +43,7 @@ const Comment: React.FC<{ commentProps: CommentProps }> = ({
 						}}
 						className={styles.reaction_icon}
 					/>
-					{commentProps.commentComment}
+					{commentProps.commentLikes}
 				</span>
 				<span>
 					<FontAwesomeIcon
@@ -55,7 +55,7 @@ const Comment: React.FC<{ commentProps: CommentProps }> = ({
 						}}
 						className={styles.reaction_icon}
 					/>
-					{commentProps.commentLikes}
+					{commentProps.commentComment}
 				</span>
 			</div>
 		</div>

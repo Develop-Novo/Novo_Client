@@ -30,15 +30,14 @@ const MainPage = () => {
 
 				for (var contentId = 1; contentId < 6; contentId++) {
 					const response = await axios.get(
-						`http://35.216.73.185:8080/content/id/${contentId}`
+						`http://52.78.121.235:8080/content/id/${contentId}`
 					);
 
 					const rankingData = {
 						novelTitle: response.data.data.title,
 						novelRating: response.data.data.rating,
 						rankingNum: response.data.data.id,
-						novelImage:
-							"https://github.com/ITKOO/connect-dku-client/assets/40304565/382ab3d9-ef2f-4c8c-8aa7-639569ba146d",
+						novelImage: response.data.data.coverImg,
 					};
 
 					novels.push(rankingData);
@@ -61,14 +60,14 @@ const MainPage = () => {
 
 				for (var contentId = 1; contentId < 4; contentId++) {
 					const response = await axios.get(
-						`http://35.216.73.185:8080/content/id/${contentId}`
+						`http://52.78.121.235:8080/content/id/${contentId}`
 					);
 
 					const bannerData = {
 						bannerImage:
 							"https://github.com/Develop-Novo/Novo_Client/assets/40304565/0a7532ab-ce13-4405-8a90-16a87ed02756",
 						bannerTitle: response.data.data.title,
-						bannerSubtitle: response.data.data.introduction,
+						bannerSubtitle: response.data.data.title,
 					};
 
 					banners.push(bannerData);
@@ -148,7 +147,7 @@ const MainPage = () => {
 	return (
 		novoNovels && (
 			<>
-				<Header />
+				<Header normal={true} />
 
 				<div id={styles.banner_container}>
 					<Button
