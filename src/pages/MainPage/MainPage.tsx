@@ -7,6 +7,23 @@ import Footer from "../../components/Footer/Footer";
 import Button from "../../components/Button/Button";
 import axios from "axios";
 
+interface INovel {
+  ageRating: string;
+  coverImg: string;
+  detailImg: string;
+  genre: string;
+  id: number;
+  introduction: string;
+  keyword: string[];
+  link: string;
+  platform: string;
+  price: string;
+  publishedAt: string;
+  rating: number;
+  serialDay: string;
+  title: string;
+  writer: string;
+}
 interface NovelInfo {
   novelID: number;
   rankingNum: number;
@@ -259,10 +276,51 @@ const MainPage = () => {
   //플랫폼별 작품 조회 끝/////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////
 
+  //Novo Top 10/////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////
+  const [top10Novels, setTop10Novels] = useState<NovelInfo[]>([]);
+
+  useEffect(() => {
+    const getTop10Novels = async () => {
+      const novels = [];
+      var rankingNum = 1;
+      try {
+        const response = await axios.get(
+          "http://52.78.121.235:8080/content/all"
+        );
+        // rating을 기준으로 내림차순으로 정렬
+        const data = response.data.data.sort(
+          (a: INovel, b: INovel) => b.rating - a.rating
+        );
+        const top10 = response.data.count >= 10 ? data.slice(0, 10) : data;
+
+        for (let idx = 0; idx < top10.length; idx++) {
+          const rankingData = {
+            novelID: top10[idx].id,
+            novelTitle: top10[idx].title,
+            novelRating: top10[idx].rating,
+            rankingNum: rankingNum,
+            novelImage: top10[idx].coverImg,
+          };
+
+          novels.push(rankingData);
+          rankingNum++;
+        }
+
+        setTop10Novels(novels);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getTop10Novels();
+  }, []);
+  //Novo Top 10 조회 끝/////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////
+
   const rankingList = [
     {
       rankingTitle: "노보 TOP 10",
-      rankingNovels: novoNovels,
+      rankingNovels: top10Novels,
     },
     {
       rankingTitle: "그 드라마의 원작!",
