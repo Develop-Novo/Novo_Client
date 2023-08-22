@@ -30,7 +30,7 @@ const MainPage = () => {
 			try {
 				const novels = [];
 				var rankingNum = 1;
-				for (var contentId = 7; contentId <= 16; contentId++) {
+				for (var contentId = 1; contentId <= 5; contentId++) {
 					const response = await axios.get(
 						`http://52.78.121.235:8080/content/id/${contentId}`
 					);

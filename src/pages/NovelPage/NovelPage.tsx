@@ -207,17 +207,17 @@ function NovelPage() {
 												src={
 													novel?.platform ===
 													"네이버 시리즈"
-														? "./images/naverSeries__icon.png"
+														? "/images/naverSeries__icon.png"
 														: novel.platform ===
 														  "카카오 페이지"
-														? "./images/kakaoPage__icon.png"
+														? "/images/kakaoPage__icon.png"
 														: novel.platform ===
 														  "리디북스"
-														? "./images/ridiBooks__icon.png"
+														? "/images/ridiBooks__icon.png"
 														: novel.platform ===
 														  "문피아"
-														? "./images/munpia__icon.png"
-														: "./images/joara__icon.png"
+														? "/images/munpia__icon.png"
+														: "/images/joara__icon.png"
 												}
 											/>
 											<div

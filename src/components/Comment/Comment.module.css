@@ -51,6 +51,7 @@
 	font: normal normal normal 20px/26px Pretendard;
 	letter-spacing: 0px;
 	color: #000000;
+	overflow: scroll; /* 넘치는 내용 숨김 */
 }
 
 .comment__reaction {
