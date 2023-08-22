@@ -16,13 +16,14 @@ body {
 	border-bottom: 0.5px solid #c0c0c0;
 }
 
-#header__container__transparent{
+#header__container__transparent {
 	display: flex;
 	justify-content: space-around;
 	top: 0px;
 	left: 0px;
 	width: 1920px;
-	background: transparent linear-gradient(180deg, #000000 0%, #00000000 100%) 0% 0% no-repeat padding-box;
+	background: transparent linear-gradient(180deg, #000000 0%, #00000000 100%)
+		0% 0% no-repeat padding-box;
 	opacity: 0.53;
 }
 
@@ -50,14 +51,14 @@ body {
 	margin-bottom: 12px;
 }
 
-.search__transparent{
+.search__transparent {
 	width: 580px;
 	height: 40px;
 	display: flex;
 	align-items: center;
 	/* UI Properties */
 	background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-	background: #FFFFFF 0% 0% no-repeat padding-box;
+	background: #ffffff 0% 0% no-repeat padding-box;
 	border-radius: 4px;
 	margin-top: 20px;
 	margin-bottom: 12px;
@@ -79,7 +80,12 @@ body {
 	left: 20px;
 }
 
-.search_input__transparent{
+.search_input:focus {
+	outline: none; /* 포커스 시 나타나는 외곽선 제거 */
+	box-shadow: none; /* 포커스 시 나타나는 그림자 효과 제거 */
+}
+
+.search_input__transparent {
 	border: none;
 	height: 30px;
 	width: 90%;
@@ -87,12 +93,12 @@ body {
 	position: relative;
 	left: 20px;
 	background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-	background: #FFFFFF 0% 0% no-repeat padding-box;
+	background: #ffffff 0% 0% no-repeat padding-box;
 }
 .top_icon {
 	width: 32px;
 	height: 32px;
-	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1)
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .icons {

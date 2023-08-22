@@ -5,6 +5,7 @@ interface BannerInfo {
 	bannerImage: string;
 	bannerTitle: string;
 	bannerSubtitle: string;
+	bannerKeyword: string;
 }
 
 const LargeBanner: React.FC<{ bannerProps: BannerInfo }> = ({
@@ -22,7 +23,9 @@ const LargeBanner: React.FC<{ bannerProps: BannerInfo }> = ({
 		<>
 			<div className={styles.background_wrap} style={backgroundImage}>
 				<div className={styles.content}>
-					<span className={styles.keyword}>NEW</span>
+					<span className={styles.keyword}>
+						{bannerProps.bannerKeyword}
+					</span>
 					<span className={styles.banner_title}>
 						{bannerProps.bannerTitle}
 					</span>

@@ -17,6 +17,7 @@ interface BannerInfo {
 	bannerImage: string;
 	bannerTitle: string;
 	bannerSubtitle: string;
+	bannerKeyword: string;
 }
 
 const MainPage = () => {
@@ -35,7 +36,7 @@ const MainPage = () => {
 
 					const rankingData = {
 						novelTitle: response.data.data.title,
-						novelRating: response.data.data.rating,
+						novelRating: response.data.data.rating.toFixed(1),
 						rankingNum: rankingNum,
 						novelImage: response.data.data.coverImg,
 					};
@@ -69,6 +70,7 @@ const MainPage = () => {
 						bannerImage: response.data.data.detailImg,
 						bannerTitle: response.data.data.title,
 						bannerSubtitle: response.data.data.title,
+						bannerKeyword: "NEW",
 					};
 
 					banners.push(bannerData);
