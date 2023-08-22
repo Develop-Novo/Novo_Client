@@ -54,7 +54,7 @@ const MainPage = () => {
 
     fetchData();
   }, []);
-  console.log(novoNovels);
+
   //배너 작품 api연결
   const [bannerList, setBannerList] = useState<BannerInfo[]>([]);
 
@@ -289,8 +289,6 @@ const MainPage = () => {
       rankingNovels: joaraNovels,
     },
   ];
-
-  console.log("rankingList:", rankingList);
 
   return (
     novoNovels && (
