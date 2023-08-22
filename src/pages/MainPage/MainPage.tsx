@@ -35,7 +35,7 @@ const MainPage = () => {
 
 					const rankingData = {
 						novelTitle: response.data.data.title,
-						novelRating: response.data.data.rating,
+						novelRating: response.data.data.rating.toFixed(1),
 						rankingNum: rankingNum,
 						novelImage: response.data.data.coverImg,
 					};
