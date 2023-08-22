@@ -210,18 +210,23 @@ function NovelPage() {
                       작품 키워드
                     </div>
                     <div className={styles.novel__contents__keywords}>
-                      {novel.keyword.map((keyword) => (
-                        <div
-                          key={keyword}
-                          className={styles.novel__contents__keyword}
-                        >
-                          <div
-                            className={styles.novel__contents__keyword__text}
-                          >
-                            {`${keyword}`}
-                          </div>
-                        </div>
-                      ))}
+                      {novel.keyword.map(
+                        (keyword) =>
+                          keyword !== "" && (
+                            <div
+                              key={keyword}
+                              className={styles.novel__contents__keyword}
+                            >
+                              <div
+                                className={
+                                  styles.novel__contents__keyword__text
+                                }
+                              >
+                                {`${keyword}`}
+                              </div>
+                            </div>
+                          )
+                      )}
                     </div>
                   </div>
                 </div>

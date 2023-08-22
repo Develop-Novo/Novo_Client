@@ -29,7 +29,7 @@
 
 #chart__rating__avg{
     /* Layout Properties */
-    width: 105px;
+    min-width: 110px;
     height: 29px;
 
     /* UI Properties */
@@ -41,6 +41,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
+
+    white-space: nowrap; /* 줄바꿈 금지 */
 }
 
 #chart__rating__cnt{
