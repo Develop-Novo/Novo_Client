@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./StarRating.module.css";
 import axios from "axios";
 
@@ -10,22 +10,24 @@ interface IRating {
   id: number;
 }
 interface StarRatingProps {
-  novelId: number;
+  memberId: string | null;
+  contentId: number;
   myRating: IRating | null;
 }
 
-function StarRating({ myRating }: StarRatingProps) {
+function StarRating({ memberId, myRating }: StarRatingProps) {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
-  const [clickedItem, setClickedItem] = useState<number | null>(
-    myRating ? myRating.star : 0
-  );
+  const [clickedItem, setClickedItem] = useState<number>(0);
   const handleMouseEnter = (itemId: number) => {
     setHoveredItem(itemId);
   };
-
   const handleMouseLeave = () => {
     setHoveredItem(null);
   };
+
+  useEffect(() => {
+    setClickedItem(myRating ? myRating.star : 0);
+  }, [myRating]);
 
   const handleClick = (itemId: number) => {
     const postNewStar = async (star: number) => {
@@ -33,7 +35,7 @@ function StarRating({ myRating }: StarRatingProps) {
         const response = await axios.post(
           "http://52.78.121.235:8080/star/new",
           {
-            memberId: 152,
+            memberId: memberId,
             contentId: 1,
             star: star,
           },
@@ -53,7 +55,7 @@ function StarRating({ myRating }: StarRatingProps) {
         const response = await axios.put(
           `http://52.78.121.235:8080/star/id/${starId}`,
           {
-            memberId: 152,
+            memberId: memberId,
             contentId: 1,
             star: star,
           },
@@ -75,8 +77,6 @@ function StarRating({ myRating }: StarRatingProps) {
       postNewStar(itemId);
     }
   };
-
-  //console.log(hoveredItem, clickedItem);
 
   return (
     <div className={styles.star__container}>
