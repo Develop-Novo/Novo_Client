@@ -15,6 +15,7 @@ interface NovelInfo {
 }
 interface BannerInfo {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	bannerImage: string;
 	bannerTitle: string;
 	bannerSubtitle: string;
@@ -192,6 +193,14 @@ const MainPage = () => {
 }
 
 const MainPage = () => {
+=======
+  bannerImage: string;
+  bannerTitle: string;
+  bannerSubtitle: string;
+}
+
+const MainPage = () => {
+>>>>>>> 445e4ece1d90717fefc8b4cb91dc2dfb34d9c43d
   //랭킹 작품 api연결
   const [novoNovels, setNovoNovels] = useState<NovelInfo[]>([]);
 
@@ -483,6 +492,9 @@ const MainPage = () => {
       </>
     )
   );
+<<<<<<< HEAD
+>>>>>>> 445e4ece1d90717fefc8b4cb91dc2dfb34d9c43d
+=======
 >>>>>>> 445e4ece1d90717fefc8b4cb91dc2dfb34d9c43d
 };
 
