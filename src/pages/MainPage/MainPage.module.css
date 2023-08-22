@@ -1,9 +1,38 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.container__wrapper {
+	width: 100vw;
+	min-width: 1920px;
+	min-height: calc(5835 - 96px)px;
+
+	display: flex;
+	justify-content: center;
+
+	overflow: hidden;
+}
+
+.container {
+	position: relative;
+	/* Layout Properties */
+	top: 0px;
+	left: 0px;
+	width: 1920px;
+	height: clac(5835 - 96px)px;
+
+	/* UI Properties */
+	background: #ffffff 0% 0% no-repeat padding-box;
+	opacity: 1;
+}
+
 #banner_container {
 	margin: 48px auto 0 auto;
 	text-align: center;
 
 	width: 1480px;
-	overflow: scroll;
+	overflow: hidden;
 }
 
 #slideList {

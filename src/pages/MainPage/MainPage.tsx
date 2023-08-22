@@ -292,39 +292,41 @@ const MainPage = () => {
 
   return (
     novoNovels && (
-      <>
-        <Header normal={true} />
+      <div className={styles.container__wrapper}>
+        <div className={styles.container}>
+          <Header normal={true} />
 
-        <div id={styles.banner_container}>
-          <Button
-            buttonType="left"
-            buttonTop="382px"
-            buttonLeft="201px"
-            onClick={handlePreviousSlide}
-          />
-          <div id={styles.slideList}>
-            {bannerList.map((item, index) => (
-              <span key={index} className={styles.banner}>
-                <Banner bannerProps={item} />
-              </span>
-            ))}
+          <div id={styles.banner_container}>
+            <Button
+              buttonType="left"
+              buttonTop="382px"
+              buttonLeft="201px"
+              onClick={handlePreviousSlide}
+            />
+            <div id={styles.slideList}>
+              {bannerList.map((item, index) => (
+                <span key={index} className={styles.banner}>
+                  <Banner bannerProps={item} />
+                </span>
+              ))}
+            </div>
+            <Button
+              buttonType="right"
+              buttonTop="382px"
+              buttonLeft="1683px"
+              onClick={handleNextSlide}
+            />
           </div>
-          <Button
-            buttonType="right"
-            buttonTop="382px"
-            buttonLeft="1683px"
-            onClick={handleNextSlide}
-          />
-        </div>
-        <span className={styles.showSlideNum}>
-          {currentSlide + 1} / {bannerList.length}
-        </span>
+          <span className={styles.showSlideNum}>
+            {currentSlide + 1} / {bannerList.length}
+          </span>
 
-        {rankingList.map((item, index) => (
-          <Ranking key={index} rankingProps={item} />
-        ))}
-        <Footer />
-      </>
+          {rankingList.map((item, index) => (
+            <Ranking key={index} rankingProps={item} />
+          ))}
+          <Footer />
+        </div>
+      </div>
     )
   );
 };
