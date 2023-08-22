@@ -8,16 +8,16 @@ import MainPage from "./pages/MainPage/MainPage";
 import NovelPage from "./pages/NovelPage/NovelPage";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+	document.getElementById("root") as HTMLElement
 );
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<LoginPage />}></Route>
-      <Route path="register" element={<RegisterPage />}></Route>
-      <Route path="resetpassword" element={<ResetPasswordPage />}></Route>
-      <Route path="main" element={<MainPage />}></Route>
-      <Route path="novel" element={<NovelPage />}></Route>
-    </Routes>
-  </BrowserRouter>
+	<BrowserRouter>
+		<Routes>
+			<Route path="/" element={<LoginPage />}></Route>
+			<Route path="register" element={<RegisterPage />}></Route>
+			<Route path="resetpassword" element={<ResetPasswordPage />}></Route>
+			<Route path="main" element={<MainPage />}></Route>
+			<Route path="novel/:id" element={<NovelPage />}></Route>
+		</Routes>
+	</BrowserRouter>
 );

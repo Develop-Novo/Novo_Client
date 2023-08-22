@@ -6,7 +6,7 @@ import Comment from "../../components/Comment/Comment";
 import axios from "axios";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 interface INovel {
 	ageRating: string;
@@ -55,11 +55,13 @@ function NovelPage() {
 	]);
 	const [comments, setComments] = useState<CommentProps[]>([]);
 
+	const { id } = useParams();
+
 	useEffect(() => {
 		const getNovel = async () => {
 			try {
 				const response = await axios.get(
-					"http://52.78.121.235:8080/content/id/1",
+					`http://52.78.121.235:8080/content/id/${id}`,
 					{
 						headers: {
 							"Content-Type": "application/json",
@@ -74,7 +76,7 @@ function NovelPage() {
 		const getAllRating = async () => {
 			try {
 				const response = await axios.get(
-					"http://52.78.121.235:8080/star/contentId/1",
+					`http://52.78.121.235:8080/star/contentId/${id}`,
 					{
 						headers: {
 							"Content-Type": "application/json",
@@ -89,7 +91,7 @@ function NovelPage() {
 		const getComments = async () => {
 			try {
 				const response = await axios.get(
-					"http://52.78.121.235:8080/review/contentId/1",
+					`http://52.78.121.235:8080/review/contentId/${id}`,
 					{
 						headers: {
 							"Content-Type": "application/json",

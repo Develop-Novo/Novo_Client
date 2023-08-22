@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import styles from "./Ranking.module.css";
 import Cover from "../Cover/Cover";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 // 소설 정보에 대한 타입 정의
 interface NovelInfo {
+	novelID: number;
 	rankingNum: number;
 	novelImage: string;
 	novelTitle: string;
@@ -76,9 +78,9 @@ const Ranking: React.FC<RankingProps> = ({ rankingProps }) => {
 								transition: "transform 0.3s ease-in-out",
 							}}
 						>
-							<a href="/novel">
+							<Link to={`/novel/${novel.novelID}`}>
 								<Cover novelProps={novel} />
-							</a>
+							</Link>
 						</div>
 					))}
 				<span className={styles.cover_next_button}>

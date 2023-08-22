@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Cover.module.css";
 
 interface NovelProps {
+	novelID: number;
 	rankingNum: number;
 	novelImage: string;
 	novelTitle: string;

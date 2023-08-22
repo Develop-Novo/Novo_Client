@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Banner.module.css";
 
 interface BannerInfo {
+	novelID: number;
 	bannerImage: string;
 	bannerTitle: string;
 	bannerSubtitle: string;

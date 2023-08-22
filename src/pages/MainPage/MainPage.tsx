@@ -8,12 +8,14 @@ import Button from "../../components/Button/Button";
 import axios from "axios";
 
 interface NovelInfo {
+	novelID: number;
 	rankingNum: number;
 	novelImage: string;
 	novelTitle: string;
 	novelRating: number;
 }
 interface BannerInfo {
+	novelID: number;
 	bannerImage: string;
 	bannerTitle: string;
 	bannerSubtitle: string;
@@ -34,6 +36,7 @@ const MainPage = () => {
 					);
 
 					const rankingData = {
+						novelID: response.data.data.id,
 						novelTitle: response.data.data.title,
 						novelRating: response.data.data.rating.toFixed(1),
 						rankingNum: rankingNum,
@@ -66,6 +69,7 @@ const MainPage = () => {
 					);
 
 					const bannerData = {
+						novelID: response.data.data.id,
 						bannerImage: response.data.data.detailImg,
 						bannerTitle: response.data.data.title,
 						bannerSubtitle: response.data.data.title,
@@ -140,6 +144,7 @@ const MainPage = () => {
 				);
 				for (let idx = 0; idx < response.data.count; idx++) {
 					const rankingData = {
+						novelID: response.data.data[idx].id,
 						novelTitle: response.data.data[idx].title,
 						novelRating: response.data.data[idx].rating,
 						rankingNum: rankingNum,
@@ -163,6 +168,7 @@ const MainPage = () => {
 				);
 				for (let idx = 0; idx < response.data.count; idx++) {
 					const rankingData = {
+						novelID: response.data.data[idx].id,
 						novelTitle: response.data.data[idx].title,
 						novelRating: response.data.data[idx].rating,
 						rankingNum: rankingNum,
@@ -186,6 +192,7 @@ const MainPage = () => {
 				);
 				for (let idx = 0; idx < response.data.count; idx++) {
 					const rankingData = {
+						novelID: response.data.data[idx].id,
 						novelTitle: response.data.data[idx].title,
 						novelRating: response.data.data[idx].rating,
 						rankingNum: rankingNum,
@@ -209,6 +216,7 @@ const MainPage = () => {
 				);
 				for (let idx = 0; idx < response.data.count; idx++) {
 					const rankingData = {
+						novelID: response.data.data[idx].id,
 						novelTitle: response.data.data[idx].title,
 						novelRating: response.data.data[idx].rating,
 						rankingNum: rankingNum,
@@ -232,6 +240,7 @@ const MainPage = () => {
 				);
 				for (let idx = 0; idx < response.data.count; idx++) {
 					const rankingData = {
+						novelID: response.data.data[idx].id,
 						novelTitle: response.data.data[idx].title,
 						novelRating: response.data.data[idx].rating,
 						rankingNum: rankingNum,
