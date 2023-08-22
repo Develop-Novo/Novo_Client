@@ -27,7 +27,8 @@ function Button__Shortcut({ novel }: IButton__Shortcut) {
     <button className={styles.novel__banner__info__btn} id={styles.kakao__page}>
       <img
         className={styles.novel__banner__info__btn__icon}
-        src={"./images/kakaoPage__icon.png"}
+        src="../images/kakaoPage__icon.png"
+        alt="카카오페이지 아이콘"
       />
       <div
         className={styles.novel__banner__info__btn__text}
@@ -43,7 +44,8 @@ function Button__Shortcut({ novel }: IButton__Shortcut) {
     >
       <img
         className={styles.novel__banner__info__btn__icon}
-        src={"./images/naverSeries__icon.png"}
+        src="../images/naverSeries__icon.png"
+        alt="네이버 시리즈 아이콘"
       />
       <div
         className={styles.novel__banner__info__btn__text}
@@ -56,7 +58,8 @@ function Button__Shortcut({ novel }: IButton__Shortcut) {
     <button className={styles.novel__banner__info__btn} id={styles.ridiBooks}>
       <img
         className={styles.novel__banner__info__btn__icon}
-        src={"./images/ridiBooks__icon.png"}
+        src="../images/ridiBooks__icon.png"
+        alt="리디북스 아이콘"
       />
       <div
         className={styles.novel__banner__info__btn__text}
@@ -69,7 +72,8 @@ function Button__Shortcut({ novel }: IButton__Shortcut) {
     <button className={styles.novel__banner__info__btn} id={styles.munpia}>
       <img
         className={styles.novel__banner__info__btn__icon}
-        src={"./images/munpia__icon.png"}
+        src="../images/munpia__icon.png"
+        alt="문피아 아이콘"
       />
       <div
         className={styles.novel__banner__info__btn__text}
@@ -82,7 +86,8 @@ function Button__Shortcut({ novel }: IButton__Shortcut) {
     <button className={styles.novel__banner__info__btn} id={styles.joara}>
       <img
         className={styles.novel__banner__info__btn__icon}
-        src={"./images/joara__icon.png"}
+        src="../images/joara__icon.png"
+        alt="조아라 아이콘" // 대체 텍스트 추가
       />
       <div
         className={styles.novel__banner__info__btn__text}
