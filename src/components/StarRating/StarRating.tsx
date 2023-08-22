@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./StarRating.module.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 // StarRating 컴포넌트의 props 타입 정의
 interface IRating {
@@ -18,6 +19,7 @@ interface StarRatingProps {
 function StarRating({ memberId, myRating }: StarRatingProps) {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
   const [clickedItem, setClickedItem] = useState<number>(0);
+  const navigate = useNavigate();
   const handleMouseEnter = (itemId: number) => {
     setHoveredItem(itemId);
   };
@@ -71,10 +73,15 @@ function StarRating({ memberId, myRating }: StarRatingProps) {
       }
     };
     setClickedItem(itemId);
-    if (myRating) {
-      modifyStar(itemId, myRating.id);
+    if (memberId === null) {
+      alert("로그인이 필요한 서비스입니다.");
+      navigate("/");
     } else {
-      postNewStar(itemId);
+      if (myRating) {
+        modifyStar(itemId, myRating.id);
+      } else {
+        postNewStar(itemId);
+      }
     }
   };
 

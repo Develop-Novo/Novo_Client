@@ -55,7 +55,6 @@ function NovelPage() {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
   ]);
   const [comments, setComments] = useState<CommentProps[]>([]);
-
   const { id } = useParams();
 
   useEffect(() => {
