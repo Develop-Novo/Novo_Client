@@ -6,7 +6,7 @@ body {
 .container__wrapper {
 	width: 100vw;
 	min-width: 1920px;
-	min-height: calc(2636px + 344px);
+	min-height: calc(2615px + 344px);
 
 	display: flex;
 	justify-content: center;
