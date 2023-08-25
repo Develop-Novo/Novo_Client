@@ -1,0 +1,32 @@
+.novel__contents__button__comment {
+	margin-left: 72px;
+
+	/* Layout Properties */
+	width: 220px;
+	height: 72px;
+
+	/* UI Properties */
+	background: #ffffff 0% 0% no-repeat padding-box;
+	border: 2px solid #ff6b01;
+	border-radius: 4px;
+	opacity: 1;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	cursor: pointer;
+}
+
+.novel__contents__button__comment__text {
+	/* Layout Properties */
+	width: 123px;
+	height: 29px;
+
+	/* UI Properties */
+	text-align: left;
+	font: normal normal bold 24px/29px Pretendard;
+	letter-spacing: -1.2px;
+	color: #ff6b01;
+	opacity: 1;
+}

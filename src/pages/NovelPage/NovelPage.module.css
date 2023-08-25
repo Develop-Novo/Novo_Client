@@ -149,39 +149,6 @@ body {
 	align-items: center;
 }
 
-.novel__contents__button__comment {
-	margin-left: 72px;
-
-	/* Layout Properties */
-	width: 220px;
-	height: 72px;
-
-	/* UI Properties */
-	background: #ffffff 0% 0% no-repeat padding-box;
-	border: 2px solid #ff6b01;
-	border-radius: 4px;
-	opacity: 1;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	cursor: pointer;
-}
-
-.novel__contents__button__comment__text {
-	/* Layout Properties */
-	width: 123px;
-	height: 29px;
-
-	/* UI Properties */
-	text-align: left;
-	font: normal normal bold 24px/29px Pretendard;
-	letter-spacing: -1.2px;
-	color: #ff6b01;
-	opacity: 1;
-}
-
 .novel__contents__hr {
 	width: 1064px;
 	margin-top: 32px;
@@ -323,4 +290,36 @@ body {
 
 .novel__basic_info__title {
 	margin-left: 220px;
+}
+
+.novel__comments__none__wrapper {
+	position: relative;
+	width: 100%;
+}
+
+.novel__comments__none {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+
+	filter: blur(6px);
+	-webkit-filter: blur(6px);
+	opacity: 0.5;
+}
+
+.novel__comments__none__text {
+	position: absolute;
+	top: 104px;
+	left: 618px;
+
+	font: normal normal bold 24px/26px Pretendard;
+	letter-spacing: 0px;
+	color: #000000;
+	opacity: 1;
+}
+
+.novel__comments__none__button {
+	position: absolute;
+	top: 153px;
+	left: 580px;
 }
