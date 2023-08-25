@@ -6,8 +6,24 @@ import Ranking from "../../components/Ranking/Ranking";
 import Footer from "../../components/Footer/Footer";
 import Button from "../../components/Button/Button";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
+interface INovel {
+	ageRating: string;
+	coverImg: string;
+	detailImg: string;
+	genre: string;
+	id: number;
+	introduction: string;
+	keyword: string[];
+	link: string;
+	platform: string;
+	price: string;
+	publishedAt: string;
+	rating: number;
+	serialDay: string;
+	title: string;
+	writer: string;
+}
 interface NovelInfo {
 	novelID: number;
 	rankingNum: number;
@@ -22,10 +38,8 @@ interface BannerInfo {
 	bannerSubtitle: string;
 	bannerKeyword: string;
 }
-
 const MainPage = () => {
 	const [novoNovels, setNovoNovels] = useState<NovelInfo[]>([]);
-
 	useEffect(() => {
 		async function fetchData() {
 			try {
@@ -35,7 +49,6 @@ const MainPage = () => {
 					const response = await axios.get(
 						`http://52.78.121.235:8080/content/id/${contentId}`
 					);
-
 					const rankingData = {
 						novelID: response.data.data.id,
 						novelTitle: response.data.data.title,
@@ -43,7 +56,6 @@ const MainPage = () => {
 						rankingNum: rankingNum,
 						novelImage: response.data.data.coverImg,
 					};
-
 					novels.push(rankingData);
 					rankingNum++;
 				}
@@ -52,23 +64,18 @@ const MainPage = () => {
 				console.log(error);
 			}
 		}
-
 		fetchData();
 	}, []);
-	console.log(novoNovels);
 	//배너 작품 api연결
 	const [bannerList, setBannerList] = useState<BannerInfo[]>([]);
-
 	useEffect(() => {
 		async function fetchData() {
 			try {
 				const banners = [];
-
 				for (var contentId = 1; contentId < 4; contentId++) {
 					const response = await axios.get(
 						`http://52.78.121.235:8080/content/id/${contentId}`
 					);
-
 					const bannerData = {
 						novelID: response.data.data.id,
 						bannerImage: response.data.data.detailImg,
@@ -76,7 +83,6 @@ const MainPage = () => {
 						bannerSubtitle: response.data.data.title,
 						bannerKeyword: "NEW",
 					};
-
 					banners.push(bannerData);
 				}
 				setBannerList(banners);
@@ -84,24 +90,19 @@ const MainPage = () => {
 				console.log(error);
 			}
 		}
-
 		fetchData();
 	}, []);
-
 	//배너 슬라이드 구현
 	const [currentSlide, setCurrentSlide] = useState(0);
-
 	const handleNextSlide = () => {
 		setCurrentSlide((prevSlide) => (prevSlide + 1) % bannerList.length);
 	};
-
 	const handlePreviousSlide = () => {
 		setCurrentSlide(
 			(prevSlide) =>
 				(prevSlide - 1 + bannerList.length) % bannerList.length
 		);
 	};
-
 	useEffect(() => {
 		const slideListElement = document.getElementById(styles.slideList);
 		if (slideListElement != null) {
@@ -109,7 +110,6 @@ const MainPage = () => {
 			slideListElement.style.transform = `translateX(-${
 				currentSlide * 100
 			}%)`;
-
 			const handleTransitionEnd = () => {
 				slideListElement.style.transition = "";
 			};
@@ -117,7 +117,6 @@ const MainPage = () => {
 				"transitionend",
 				handleTransitionEnd
 			);
-
 			return () => {
 				slideListElement.removeEventListener(
 					"transitionend",
@@ -126,7 +125,6 @@ const MainPage = () => {
 			};
 		}
 	}, [currentSlide]);
-
 	//플랫폼별 작품 조회/////////////////////////////////////////////////////
 	//카카오, 네이버, 리디북스, 문피아, 조아라////////////////////////////////
 	const [kakaoNovels, setKakaoNovels] = useState<NovelInfo[]>([]);
@@ -134,7 +132,6 @@ const MainPage = () => {
 	const [ridiNovels, setRidiNovels] = useState<NovelInfo[]>([]);
 	const [munpiaNovels, setMunpiaNovels] = useState<NovelInfo[]>([]);
 	const [joaraNovels, setJoaraNovels] = useState<NovelInfo[]>([]);
-
 	useEffect(() => {
 		const getKakaoNovels = async () => {
 			const novels = [];
@@ -147,11 +144,10 @@ const MainPage = () => {
 					const rankingData = {
 						novelID: response.data.data[idx].id,
 						novelTitle: response.data.data[idx].title,
-						novelRating: response.data.data[idx].rating,
+						novelRating: response.data.data[idx].rating.toFixed(1),
 						rankingNum: rankingNum,
 						novelImage: response.data.data[idx].coverImg,
 					};
-
 					novels.push(rankingData);
 					rankingNum++;
 				}
@@ -171,11 +167,10 @@ const MainPage = () => {
 					const rankingData = {
 						novelID: response.data.data[idx].id,
 						novelTitle: response.data.data[idx].title,
-						novelRating: response.data.data[idx].rating,
+						novelRating: response.data.data[idx].rating.toFixed(1),
 						rankingNum: rankingNum,
 						novelImage: response.data.data[idx].coverImg,
 					};
-
 					novels.push(rankingData);
 					rankingNum++;
 				}
@@ -195,11 +190,10 @@ const MainPage = () => {
 					const rankingData = {
 						novelID: response.data.data[idx].id,
 						novelTitle: response.data.data[idx].title,
-						novelRating: response.data.data[idx].rating,
+						novelRating: response.data.data[idx].rating.toFixed(1),
 						rankingNum: rankingNum,
 						novelImage: response.data.data[idx].coverImg,
 					};
-
 					novels.push(rankingData);
 					rankingNum++;
 				}
@@ -219,11 +213,10 @@ const MainPage = () => {
 					const rankingData = {
 						novelID: response.data.data[idx].id,
 						novelTitle: response.data.data[idx].title,
-						novelRating: response.data.data[idx].rating,
+						novelRating: response.data.data[idx].rating.toFixed(1),
 						rankingNum: rankingNum,
 						novelImage: response.data.data[idx].coverImg,
 					};
-
 					novels.push(rankingData);
 					rankingNum++;
 				}
@@ -243,11 +236,10 @@ const MainPage = () => {
 					const rankingData = {
 						novelID: response.data.data[idx].id,
 						novelTitle: response.data.data[idx].title,
-						novelRating: response.data.data[idx].rating,
+						novelRating: response.data.data[idx].rating.toFixed(1),
 						rankingNum: rankingNum,
 						novelImage: response.data.data[idx].coverImg,
 					};
-
 					novels.push(rankingData);
 					rankingNum++;
 				}
@@ -266,70 +258,114 @@ const MainPage = () => {
 	//플랫폼별 작품 조회 끝/////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////
 
+	//Novo Top 10/////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////
+	const [top10Novels, setTop10Novels] = useState<NovelInfo[]>([]);
+
+	useEffect(() => {
+		const getTop10Novels = async () => {
+			const novels = [];
+			var rankingNum = 1;
+			try {
+				const response = await axios.get(
+					"http://52.78.121.235:8080/content/all"
+				);
+				// rating을 기준으로 내림차순으로 정렬
+				const data = response.data.data.sort(
+					(a: INovel, b: INovel) => b.rating - a.rating
+				);
+				const top10 =
+					response.data.count >= 10 ? data.slice(0, 10) : data;
+
+				for (let idx = 0; idx < top10.length; idx++) {
+					const rankingData = {
+						novelID: top10[idx].id,
+						novelTitle: top10[idx].title,
+						novelRating: top10[idx].rating.toFixed(1),
+						rankingNum: rankingNum,
+						novelImage: top10[idx].coverImg,
+					};
+
+					novels.push(rankingData);
+					rankingNum++;
+				}
+
+				setTop10Novels(novels);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		getTop10Novels();
+	}, []);
+	//Novo Top 10 조회 끝/////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////
+
 	const rankingList = [
 		{
 			rankingTitle: "노보 TOP 10",
-			rankingNovels: novoNovels,
+			rankingNovels: top10Novels,
 		},
 		{
 			rankingTitle: "그 드라마의 원작!",
 			rankingNovels: novoNovels,
 		},
 		{
-			rankingTitle: "카카오페이지 TOP 10",
-			rankingNovels: novoNovels,
+			rankingTitle: "카카오페이지 BEST",
+			rankingNovels: kakaoNovels,
 		},
 		{
-			rankingTitle: "네이버 시리즈 TOP 10",
-			rankingNovels: novoNovels,
+			rankingTitle: "네이버 시리즈 BEST",
+			rankingNovels: naverNovels,
 		},
 		{
-			rankingTitle: "리디 TOP 10",
-			rankingNovels: novoNovels,
+			rankingTitle: "리디 BEST",
+			rankingNovels: ridiNovels,
+		},
+		{
+			rankingTitle: "문피아 BEST",
+			rankingNovels: munpiaNovels,
+		},
+		{
+			rankingTitle: "조아라 BEST",
+			rankingNovels: joaraNovels,
 		},
 	];
-
-	console.log("rankingList:", rankingList);
-
 	return (
 		novoNovels && (
-			<>
-				<Header normal={true} />
-
-				<div id={styles.banner_container}>
-					<Button
-						buttonType="left"
-						buttonTop="382px"
-						buttonLeft="201px"
-						onClick={handlePreviousSlide}
-					/>
-					<div id={styles.slideList}>
-						{bannerList.map((item, index) => (
-							<span key={index} className={styles.banner}>
-								<Link to={`/novel/${item.novelID}`}>
+			<div className={styles.container__wrapper}>
+				<div className={styles.container}>
+					<Header normal={true} />
+					<div id={styles.banner_container}>
+						<Button
+							buttonType="left"
+							buttonTop="382px"
+							buttonLeft="201px"
+							onClick={handlePreviousSlide}
+						/>
+						<div id={styles.slideList}>
+							{bannerList.map((item, index) => (
+								<span key={index} className={styles.banner}>
 									<Banner bannerProps={item} />
-								</Link>
-							</span>
-						))}
+								</span>
+							))}
+						</div>
+						<Button
+							buttonType="right"
+							buttonTop="382px"
+							buttonLeft="1683px"
+							onClick={handleNextSlide}
+						/>
 					</div>
-					<Button
-						buttonType="right"
-						buttonTop="382px"
-						buttonLeft="1683px"
-						onClick={handleNextSlide}
-					/>
+					<span className={styles.showSlideNum}>
+						{currentSlide + 1} / {bannerList.length}
+					</span>
+					{rankingList.map((item, index) => (
+						<Ranking key={index} rankingProps={item} />
+					))}
+					<Footer />
 				</div>
-				<span className={styles.showSlideNum}>
-					{currentSlide + 1} / {bannerList.length}
-				</span>
-
-				{rankingList.map((item, index) => (
-					<Ranking key={index} rankingProps={item} />
-				))}
-				<Footer />
-			</>
+			</div>
 		)
 	);
 };
-
 export default MainPage;
