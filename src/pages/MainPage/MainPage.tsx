@@ -6,6 +6,7 @@ import Ranking from "../../components/Ranking/Ranking";
 import Footer from "../../components/Footer/Footer";
 import Button from "../../components/Button/Button__arrow/Button__arrow";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 interface INovel {
 	ageRating: string;
@@ -344,9 +345,11 @@ const MainPage = () => {
 						/>
 						<div id={styles.slideList}>
 							{bannerList.map((item, index) => (
-								<span key={index} className={styles.banner}>
-									<Banner bannerProps={item} />
-								</span>
+								<Link to={`/novel/${item.novelID}`}>
+									<span key={index} className={styles.banner}>
+										<Banner bannerProps={item} />
+									</span>
+								</Link>
 							))}
 						</div>
 						<Button
