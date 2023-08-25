@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/LargeBanner";
 import Ranking from "../../components/Ranking/Ranking";
 import Footer from "../../components/Footer/Footer";
-import Button from "../../components/Button/Button";
+import Button from "../../components/Button/Button__arrow/Button__arrow";
 import axios from "axios";
 
 interface INovel {

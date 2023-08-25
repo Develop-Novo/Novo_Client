@@ -7,8 +7,8 @@ import axios from "axios";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import { Link, useParams } from "react-router-dom";
-import Button__Shortcut from "../../components/Button__Shortcut/Button__Shortcut";
-import Button__Comment from "../../components/Button__Comment/Button__Comment";
+import Button__Shortcut from "../../components/Button/Button__Shortcut/Button__Shortcut";
+import Button__Comment from "../../components/Button/Button__Comment/Button__Comment";
 
 interface INovel {
 	ageRating: string;

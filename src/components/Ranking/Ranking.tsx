@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Ranking.module.css";
 import Cover from "../Cover/Cover";
-import Button from "../Button/Button";
+import Button from "../../components/Button/Button__arrow/Button__arrow";
 import { Link } from "react-router-dom";
 
 // 소설 정보에 대한 타입 정의
