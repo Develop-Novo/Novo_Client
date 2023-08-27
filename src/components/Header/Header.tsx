@@ -64,15 +64,15 @@ function Header({ normal }: IHeader) {
 					<>
 						<img
 							src="../images/books_white__icon.png"
-							className={styles.top_icon}
+							className={styles.top_icon_shadow}
 						/>
 						<img
 							src="../images/bell_white__icon.png"
-							className={styles.top_icon}
+							className={styles.top_icon_shadow}
 						/>
 						<img
 							src="../images/user_white__icon.png"
-							className={styles.top_icon}
+							className={styles.top_icon_shadow}
 						/>
 					</>
 				)}
