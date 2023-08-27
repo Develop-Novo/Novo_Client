@@ -39,12 +39,18 @@ interface IStarRating {
 }
 
 interface CommentProps {
-	memberId: number;
+	memberId: string;
 	starId: number;
 	message: string;
 	like_count: number;
 	createdAt: string;
 	id: number;
+}
+
+interface UserProps {
+	id: number;
+	name: string;
+	profileImg: string;
 }
 
 function NovelPage() {
@@ -57,6 +63,8 @@ function NovelPage() {
 	]);
 	const [comments, setComments] = useState<CommentProps[]>([]);
 	const { id } = useParams();
+	const [userDatas, setUserDatas] = useState<UserProps[]>([]);
+	const [userRatingDatas, setUserRatingDatas] = useState<IRating[]>([]);
 
 	useEffect(() => {
 		const getNovel = async () => {
@@ -138,11 +146,50 @@ function NovelPage() {
 		});
 		getComments().then((res) => {
 			setComments(res.data);
+			//해당 코멘트 안의 memberID에 대한 api 호출 후 사용자의 이름, 프로필 사진 정보 등 가져옴
+			async function fetchUserData() {
+				try {
+					const userDatasApi = [];
+					for (var i = 0; i < res.data.length; i++) {
+						const response = await axios.get(
+							`http://52.78.121.235:8080/member/id/${res.data[i].memberId}`
+						);
+						const userData = {
+							id: response.data.data.id,
+							name: response.data.data.name,
+							profileImg: response.data.data.profileImg,
+						};
+						userDatasApi.push(userData);
+					}
+					setUserDatas(userDatasApi);
+				} catch (error) {
+					console.log(error);
+				}
+			}
+			fetchUserData();
+			//해당 코멘트 안의 starID에 대한 api 호출 후 별점 정보 등 가져옴
+			async function fetchUserRatingData() {
+				try {
+					const ratingDatasApi = [];
+					for (var i = 0; i < res.data.length; i++) {
+						const response = await axios.get(
+							`http://52.78.121.235:8080/star/id/${res.data[i].starId}`
+						);
+						const ratingData = {
+							star: response.data.data.star,
+							contentId: response.data.data.contentId,
+							memberId: response.data.data.memberId,
+							id: response.data.data.id,
+						};
+						ratingDatasApi.push(ratingData);
+					}
+					setUserRatingDatas(ratingDatasApi);
+				} catch (error) {
+					console.log(error);
+				}
+			}
+			fetchUserRatingData();
 		});
-	}, [memberId]);
-
-	useEffect(() => {
-		setMemberId(localStorage.getItem("memberId"));
 	}, []);
 
 	return (
@@ -263,8 +310,17 @@ function NovelPage() {
 									코멘트
 								</span>
 								<span className={styles.novel__comment__count}>
-									{comments.length}
+									{comments.length > 100
+										? `100+`
+										: comments.length}
 								</span>
+								{comments.length >= 5 && (
+									<span
+										className={styles.novel__comment__more}
+									>
+										더보기
+									</span>
+								)}
 							</div>
 
 							{comments.length === 0 ? (
@@ -278,7 +334,7 @@ function NovelPage() {
 									>
 										<Comment
 											commentProps={{
-												writerName: 111,
+												writerName: "unname",
 												writerImg:
 													"/images/user_white__icon.png",
 												commentRating: 0.0,
@@ -291,7 +347,7 @@ function NovelPage() {
 										/>
 										<Comment
 											commentProps={{
-												writerName: 111,
+												writerName: "unname",
 												writerImg:
 													"/images/user_white__icon.png",
 												commentRating: 0.0,
@@ -304,7 +360,7 @@ function NovelPage() {
 										/>
 										<Comment
 											commentProps={{
-												writerName: 111,
+												writerName: "unname",
 												writerImg:
 													"/images/user_white__icon.png",
 												commentRating: 0.0,
@@ -317,7 +373,7 @@ function NovelPage() {
 										/>
 										<Comment
 											commentProps={{
-												writerName: 111,
+												writerName: "unname",
 												writerImg:
 													"/images/user_white__icon.png",
 												commentRating: 0.0,
@@ -368,11 +424,25 @@ function NovelPage() {
 												<Comment
 													commentProps={{
 														writerName:
-															item.memberId,
+															userDatas[index] &&
+															userDatas[index]
+																.name,
 														writerImg:
-															"/images/user_white__icon.png",
+															userDatas[index] &&
+															(userDatas[index]
+																.profileImg ===
+															null
+																? "/images/user_white__icon.png"
+																: userDatas[
+																		index
+																  ].profileImg),
 														commentRating:
-															item.starId,
+															userRatingDatas[
+																index
+															] &&
+															userRatingDatas[
+																index
+															].star,
 														commentContent:
 															item.message,
 														commentComment: 9,
@@ -419,9 +489,9 @@ function NovelPage() {
 								</div>
 							</div>
 						</div>
-						<Footer />
 					</div>
 				</div>
+				<Footer />
 			</>
 		)
 	);

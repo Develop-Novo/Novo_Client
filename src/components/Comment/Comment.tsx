@@ -5,7 +5,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 
 interface CommentProps {
-	writerName: number;
+	writerName: string;
 	writerImg: string;
 	commentRating: number;
 	commentContent: string;
