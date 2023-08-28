@@ -4,6 +4,7 @@ import styles from "./RegisterPage.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Button__Submit from "../../components/Button/Button__Submit/Button__Submit";
+import Buttons__SocialLogin from "../../components/Button/Buttons__SocialLogin/Buttons__SocialLogin";
 
 interface IData {
   name: string;
@@ -156,36 +157,7 @@ function RegisterPage() {
                 <span id={styles.login__link__highlight}>로그인</span>
               </div>
             </Link>
-
-            <hr className={styles.form__hr} />
-            <div className={styles.form__hr__or__text}>OR</div>
-            <div className={styles.logos}>
-              <img
-                className={styles.logo}
-                src="/images/naver__icon.png"
-                alt="naver__icon"
-              />
-              <img
-                className={styles.logo}
-                src="/images/kakao__icon.png"
-                alt="kakao__icon"
-              />
-              <img
-                className={styles.logo}
-                src="/images/google__icon.png"
-                alt="google__icon"
-              />
-              <img
-                className={styles.logo}
-                src="/images/twitter__icon.png"
-                alt="twitter__icon"
-              />
-              <img
-                className={styles.logo}
-                src="/images/apple__icon.png"
-                alt="apple__icon"
-              />
-            </div>
+            <Buttons__SocialLogin />
           </form>
           {popupOpen && (
             <>
