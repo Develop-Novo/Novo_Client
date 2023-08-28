@@ -16,6 +16,14 @@
 	align-items: center;
 
 	cursor: pointer;
+
+	transition: background-color 0.3s;
+	&:hover{
+		background-color: rgb(255, 107, 1, 0.2);
+	}
+	&:active{
+		background-color: rgb(255, 107, 1, 0.2);
+	}
 }
 
 .novel__contents__button__comment__text {

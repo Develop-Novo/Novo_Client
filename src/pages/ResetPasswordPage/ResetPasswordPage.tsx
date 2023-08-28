@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./ResetPasswordPage.module.css";
 import { Link } from "react-router-dom";
+import Button__Submit from "../../components/Button/Button__Submit/Button__Submit";
 
 interface IData {
   email: string;
@@ -61,9 +62,7 @@ function ResetPasswordPage() {
                 {errors?.email?.message}
               </div>
             )}
-            <button className={styles.button__submit} type="submit">
-              이메일 보내기
-            </button>
+            <Button__Submit text="이메일 보내기" />
           </form>
         </section>
       </div>

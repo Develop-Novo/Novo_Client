@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import styles from "./LoginPage.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Button__Submit from "../../components/Button/Button__Submit/Button__Submit";
 
 interface IData {
   email: string;
@@ -141,9 +142,7 @@ function LoginPage() {
                 {errors?.password?.message}
               </div>
             )}
-            <button className={styles.button__submit} type="submit">
-              로그인
-            </button>
+            <Button__Submit text="로그인" />
             <Link to={`${process.env.PUBLIC_URL}/resetpassword`}>
               <div className={styles.reset__password__link}>
                 비밀번호를 잃어버리셨나요?

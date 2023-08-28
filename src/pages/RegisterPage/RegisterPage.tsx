@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import styles from "./RegisterPage.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Button__Submit from "../../components/Button/Button__Submit/Button__Submit";
 
 interface IData {
   name: string;
@@ -148,9 +149,7 @@ function RegisterPage() {
                 {errors?.password?.message}
               </div>
             )}
-            <button className={styles.button__submit} type="submit">
-              회원가입
-            </button>
+            <Button__Submit text="회원가입" />
             <Link to={`${process.env.PUBLIC_URL}/`}>
               <div className={styles.login__link}>
                 이미 가입하셨나요?{" "}

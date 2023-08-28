@@ -18,8 +18,12 @@
     transition: transform 0.2s ease; /* 변화를 부드럽게 적용 (0.2초 동안, ease 가속도 함수 사용) */
 }
 
-.novel__banner__info__btn:active {
+.novel__banner__info__btn:hover{
     transform: scale(0.99); /* 버튼을 약간 축소하여 누른 것처럼 보이도록 함 */
+}
+
+.novel__banner__info__btn:active{
+	transform: scale(0.99); /* 버튼을 약간 축소하여 누른 것처럼 보이도록 함 */
 }
 
 .novel__banner__info__btn__icon {
