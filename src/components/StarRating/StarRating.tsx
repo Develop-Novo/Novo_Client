@@ -16,7 +16,7 @@ interface StarRatingProps {
   myRating: IRating | null;
 }
 
-function StarRating({ memberId, myRating }: StarRatingProps) {
+function StarRating({ memberId, contentId, myRating }: StarRatingProps) {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
   const [clickedItem, setClickedItem] = useState<number>(0);
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ function StarRating({ memberId, myRating }: StarRatingProps) {
           "http://52.78.121.235:8080/star/new",
           {
             memberId: memberId,
-            contentId: 1,
+            contentId: contentId,
             star: star,
           },
           {
@@ -58,7 +58,7 @@ function StarRating({ memberId, myRating }: StarRatingProps) {
           `http://52.78.121.235:8080/star/id/${starId}`,
           {
             memberId: memberId,
-            contentId: 1,
+            contentId: contentId,
             star: star,
           },
           {
