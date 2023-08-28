@@ -1,12 +1,12 @@
 .cover{
     width: 100vw;
     min-width: 1920px;
+    height: 100vh;
     min-height: 1080px;
 
     position: absolute;
     top: 0px;
     left: 0px;
-    height: 1080px;
     background: #707070 0% 0% no-repeat padding-box;
     opacity: 0.33;
 

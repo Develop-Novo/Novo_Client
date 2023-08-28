@@ -211,30 +211,30 @@ function NovelPage() {
       <>
         <div className={styles.container__wrapper}>
           <div className={styles.container}>
-            <div className={styles.novel__banner__wrapper}>
-              <div
-                className={styles.novel__banner__background}
-                style={{
-                  backgroundImage: `url(${novel.detailImg})`,
-                }}
-              >
-                <section className={styles.novel__banner__info}>
-                  <div className={styles.novel__banner__info__title}>
-                    {novel.title}
-                  </div>
-                  <div className={styles.novel__banner__info__genre}>
-                    {novel.genre}
-                  </div>
-                  <div className={styles.novel__banner__info__introduction}>
-                    {novel.introduction}
-                  </div>
-                  <Link to={novel.link}>
-                    <Button__Shortcut novel={novel} />
-                  </Link>
-                </section>
-                <Header normal={false} />
+            <div
+              className={styles.novel__banner__wrapper}
+              style={{
+                backgroundImage: `url(${novel.detailImg})`,
+              }}
+            >
+              <h2 className={styles.blind}>상세페이지 배너</h2>
+              <Header normal={false} />
+              <div className={styles.novel__banner__info}>
+                <div className={styles.novel__banner__info__title}>
+                  {novel.title}
+                </div>
+                <div className={styles.novel__banner__info__genre}>
+                  {novel.genre}
+                </div>
+                <div className={styles.novel__banner__info__introduction}>
+                  {novel.introduction}
+                </div>
+                <Link to={novel.link}>
+                  <Button__Shortcut novel={novel} />
+                </Link>
               </div>
             </div>
+
             <section className={styles.novel__info__wrapper}>
               <h2 className={styles.blind}>상세페이지 소설 정보</h2>
               <div className={styles.novel__cover}>
@@ -292,6 +292,7 @@ function NovelPage() {
                 </div>
               </div>
             </section>
+
             <div className={styles.novel__comment__wrapper}>
               <div className={styles.novel__comment__info}>
                 <span className={styles.novel__comment__title}>코멘트</span>
@@ -417,8 +418,9 @@ function NovelPage() {
               </div>
             </div>
           </div>
+
+          <Footer />
         </div>
-        <Footer />
       </>
     )
   );
