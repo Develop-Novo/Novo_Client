@@ -211,15 +211,14 @@ function NovelPage() {
       <>
         <div className={styles.container__wrapper}>
           <div className={styles.container}>
-            <section className={styles.novel__banner__wrapper}>
-              <h2 className={styles.blind}>상세페이지 배너</h2>
+            <div className={styles.novel__banner__wrapper}>
               <div
                 className={styles.novel__banner__background}
                 style={{
                   backgroundImage: `url(${novel.detailImg})`,
                 }}
               >
-                <div className={styles.novel__banner__info}>
+                <section className={styles.novel__banner__info}>
                   <div className={styles.novel__banner__info__title}>
                     {novel.title}
                   </div>
@@ -232,10 +231,10 @@ function NovelPage() {
                   <Link to={novel.link}>
                     <Button__Shortcut novel={novel} />
                   </Link>
-                </div>
+                </section>
                 <Header normal={false} />
               </div>
-            </section>
+            </div>
             <section className={styles.novel__info__wrapper}>
               <h2 className={styles.blind}>상세페이지 소설 정보</h2>
               <div className={styles.novel__cover}>
