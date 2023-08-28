@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Button__Submit from "../../components/Button/Button__Submit/Button__Submit";
 import Buttons__SocialLogin from "../../components/Button/Buttons__SocialLogin/Buttons__SocialLogin";
+import Popup from "../../components/Popup/Popup";
 
 interface IData {
   name: string;
@@ -159,26 +160,15 @@ function RegisterPage() {
             </Link>
             <Buttons__SocialLogin />
           </form>
-          {popupOpen && (
-            <>
-              <div
-                className={styles.cover}
-                onClick={() => setPopupOpen(false)}
-              />
-              <div className={styles.popup__wrapper}>
-                <div className={styles.popup}>
-                  <div className={styles.success__message}>
-                    회원가입이 완료되었습니다!
-                  </div>
-                  <div className={styles.popup__hr} />
-                  <span className={styles.popup__button}>
-                    <Link to={`${process.env.PUBLIC_URL}/`}>로그인하기</Link>
-                  </span>
-                </div>
-              </div>
-            </>
-          )}
         </section>
+        {popupOpen && (
+          <Popup
+            closePopup={() => setPopupOpen(false)}
+            popupMsg="회원가입이 완료되었습니다!"
+            onPopupBtn={() => navigate(`${process.env.PUBLIC_URL}/`)}
+            btnMsg="로그인하기"
+          />
+        )}
       </div>
     </>
   );

@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Button__Submit from "../../components/Button/Button__Submit/Button__Submit";
 import Buttons__SocialLogin from "../../components/Button/Buttons__SocialLogin/Buttons__SocialLogin";
+import Popup from "../../components/Popup/Popup";
 
 interface IData {
   email: string;
@@ -71,7 +72,7 @@ function LoginPage() {
     });
   };
 
-  const closePopUp = () => {
+  const closePopup = () => {
     setPopupOpen(false);
     navigate("/main");
   };
@@ -159,16 +160,12 @@ function LoginPage() {
           </form>
         </section>
         {popupOpen && (
-          <>
-            <div className={styles.cover} onClick={closePopUp} />
-            <div className={styles.popup}>
-              <div className={styles.success__message}>{popupMsg}</div>
-              <div className={styles.popup__hr} />
-              <span className={styles.popup__button} onClick={closePopUp}>
-                닫기
-              </span>
-            </div>
-          </>
+          <Popup
+            closePopup={closePopup}
+            popupMsg={popupMsg}
+            onPopupBtn={closePopup}
+            btnMsg="닫기"
+          />
         )}
       </div>
     </>
