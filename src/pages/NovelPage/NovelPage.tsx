@@ -211,7 +211,8 @@ function NovelPage() {
       <>
         <div className={styles.container__wrapper}>
           <div className={styles.container}>
-            <div className={styles.novel__banner__wrapper}>
+            <section className={styles.novel__banner__wrapper}>
+              <h2 className={styles.blind}>상세페이지 배너</h2>
               <div
                 className={styles.novel__banner__background}
                 style={{
@@ -234,8 +235,9 @@ function NovelPage() {
                 </div>
                 <Header normal={false} />
               </div>
-            </div>
-            <div className={styles.novel__info__wrapper}>
+            </section>
+            <section className={styles.novel__info__wrapper}>
+              <h2 className={styles.blind}>상세페이지 소설 정보</h2>
               <div className={styles.novel__cover}>
                 <img
                   className={styles.novel__cover__img}
@@ -265,9 +267,9 @@ function NovelPage() {
                     count={starRating.count}
                   />
                   <div className={styles.novel__contents__keywords__wrapper}>
-                    <div className={styles.novel__contents__keywords__title}>
+                    <h4 className={styles.novel__contents__keywords__title}>
                       작품 키워드
-                    </div>
+                    </h4>
                     <div className={styles.novel__contents__keywords}>
                       {novel.keyword.map(
                         (keyword) =>
@@ -290,7 +292,7 @@ function NovelPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
             <div className={styles.novel__comment__wrapper}>
               <div className={styles.novel__comment__info}>
                 <span className={styles.novel__comment__title}>코멘트</span>

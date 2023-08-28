@@ -53,48 +53,46 @@ function StarRatingChart({ ratings, rating, count }: StarRatingChartProps) {
   }, []);
 
   return (
-    <>
-      <div className={styles.chart__wrapper}>
-        <div className={styles.chart__title}>별점그래프</div>
-        <div className={styles.chart__rating__wrapper}>
-          <div id={styles.chart__rating__avg}>평균 ★{rating.toFixed(1)}</div>
-          <div id={styles.chart__rating__cnt}>({count}명)</div>
-        </div>
-        <div className={styles.chart}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) =>
-            i !== 10 ? (
-              <div key={i} className={styles.chart__bar__wrapper}>
-                <div className={styles.chart__bar__inner__wrapper}>
-                  <Bar
-                    highlight={maxIdx ? i === maxIdx + 1 : false}
-                    barHeight={`${(ratings[i - 1] / total) * 312}px`}
-                  />
-                </div>
-                <div className={styles.chart__xlabel}>
-                  <p className={styles.chart__xlabel__text}>{`${i}`}</p>
-                </div>
-              </div>
-            ) : (
-              <div
-                key={i}
-                className={styles.chart__bar__wrapper}
-                id={styles.chart__bar__wrapper__last}
-              >
-                <div className={styles.chart__bar__inner__wrapper}>
-                  <Bar
-                    highlight={maxIdx ? i === maxIdx + 1 : false}
-                    barHeight={`${(ratings[i - 1] / total) * 312}px`}
-                  />
-                </div>
-                <div className={styles.chart__xlabel}>
-                  <p className={styles.chart__xlabel__text}>{`${i}`}</p>
-                </div>
-              </div>
-            )
-          )}
-        </div>
+    <div className={styles.chart__wrapper}>
+      <h4 className={styles.chart__title}>별점그래프</h4>
+      <div className={styles.chart__rating__wrapper}>
+        <div id={styles.chart__rating__avg}>평균 ★{rating.toFixed(1)}</div>
+        <div id={styles.chart__rating__cnt}>({count}명)</div>
       </div>
-    </>
+      <div className={styles.chart}>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) =>
+          i !== 10 ? (
+            <div key={i} className={styles.chart__bar__wrapper}>
+              <div className={styles.chart__bar__inner__wrapper}>
+                <Bar
+                  highlight={maxIdx ? i === maxIdx + 1 : false}
+                  barHeight={`${(ratings[i - 1] / total) * 312}px`}
+                />
+              </div>
+              <div className={styles.chart__xlabel}>
+                <p className={styles.chart__xlabel__text}>{`${i}`}</p>
+              </div>
+            </div>
+          ) : (
+            <div
+              key={i}
+              className={styles.chart__bar__wrapper}
+              id={styles.chart__bar__wrapper__last}
+            >
+              <div className={styles.chart__bar__inner__wrapper}>
+                <Bar
+                  highlight={maxIdx ? i === maxIdx + 1 : false}
+                  barHeight={`${(ratings[i - 1] / total) * 312}px`}
+                />
+              </div>
+              <div className={styles.chart__xlabel}>
+                <p className={styles.chart__xlabel__text}>{`${i}`}</p>
+              </div>
+            </div>
+          )
+        )}
+      </div>
+    </div>
   );
 }
 

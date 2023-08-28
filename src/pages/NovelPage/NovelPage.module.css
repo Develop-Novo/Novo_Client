@@ -3,6 +3,10 @@ body {
 	padding: 0;
 }
 
+.blind{
+	display: none;
+}
+
 .container__wrapper {
 	width: 100vw;
 	min-width: 1920px;
@@ -171,6 +175,7 @@ body {
 }
 
 .novel__contents__keywords__title {
+	margin: 0;
 	width: 103px;
 	height: 29px;
 

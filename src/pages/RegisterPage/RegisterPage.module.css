@@ -55,6 +55,7 @@ a{
 }
 
 #form__title{
+    margin: 0;
     margin-top: 32px;
     /* Layout Properties */
     width: 70px;

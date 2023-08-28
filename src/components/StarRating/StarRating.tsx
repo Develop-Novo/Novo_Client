@@ -86,7 +86,7 @@ function StarRating({ memberId, contentId, myRating }: StarRatingProps) {
   };
 
   return (
-    <div className={styles.star__container}>
+    <article className={styles.star__container}>
       <div className={styles.stars__wrapper}>
         {[0, 2, 4, 6, 8].map((i) => (
           <div key={i}>
@@ -122,29 +122,25 @@ function StarRating({ memberId, contentId, myRating }: StarRatingProps) {
               <div className={styles.star__inner__wrapper}>
                 {(hoveredItem && i + 2 <= hoveredItem) ||
                 (clickedItem && i + 2 <= clickedItem) ? (
-                  <>
-                    <div
-                      className={`${styles.star} ${styles.star__right}`}
-                      id={styles.star__clicked}
-                      onMouseEnter={() => handleMouseEnter(i + 2)}
-                      onMouseLeave={handleMouseLeave}
-                      onClick={() => handleClick(i + 2)}
-                    >
-                      ★
-                    </div>
-                  </>
+                  <div
+                    className={`${styles.star} ${styles.star__right}`}
+                    id={styles.star__clicked}
+                    onMouseEnter={() => handleMouseEnter(i + 2)}
+                    onMouseLeave={handleMouseLeave}
+                    onClick={() => handleClick(i + 2)}
+                  >
+                    ★
+                  </div>
                 ) : (
-                  <>
-                    <div
-                      className={`${styles.star} ${styles.star__right}`}
-                      id={styles.star__nonClicked}
-                      onMouseEnter={() => handleMouseEnter(i + 2)}
-                      onMouseLeave={handleMouseLeave}
-                      onClick={() => handleClick(i + 2)}
-                    >
-                      ★
-                    </div>
-                  </>
+                  <div
+                    className={`${styles.star} ${styles.star__right}`}
+                    id={styles.star__nonClicked}
+                    onMouseEnter={() => handleMouseEnter(i + 2)}
+                    onMouseLeave={handleMouseLeave}
+                    onClick={() => handleClick(i + 2)}
+                  >
+                    ★
+                  </div>
                 )}
               </div>
             </div>
@@ -175,7 +171,7 @@ function StarRating({ memberId, contentId, myRating }: StarRatingProps) {
           : "최악이에요"}
       </div>
       <div className={styles.rating}>★ {clickedItem}</div>
-    </div>
+    </article>
   );
 }
 
