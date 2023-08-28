@@ -22,7 +22,7 @@ function ResetPasswordPage() {
   return (
     <>
       <div className={styles.container__wrapper}>
-        <div className={styles.container}>
+        <section className={styles.container}>
           <form className={styles.form} onSubmit={handleSubmit(onValid)}>
             <img
               className={styles.novo__logo}
@@ -38,7 +38,7 @@ function ResetPasswordPage() {
                 />
               </button>
             </Link>
-            <h1 id={styles.form__title}>비밀번호 재설정</h1>
+            <h2 id={styles.form__title}>비밀번호 재설정</h2>
             <div id={styles.form__text}>
               가입했던 이메일을 적어주세요
               <br />
@@ -62,10 +62,10 @@ function ResetPasswordPage() {
               </div>
             )}
             <button className={styles.button__submit} type="submit">
-              <div className={styles.button__submit__text}>이메일 보내기</div>
+              이메일 보내기
             </button>
           </form>
-        </div>
+        </section>
       </div>
     </>
   );

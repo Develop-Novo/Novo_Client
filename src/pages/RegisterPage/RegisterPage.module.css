@@ -185,18 +185,19 @@ a{
     justify-content: center;
     align-items: center;
 
-    cursor: pointer;
-}
-
-.button__submit__text{
-    width: 70px;
-    height: 24px;
-
     text-align: center;
     font: normal normal bold 20px/24px Pretendard;
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s;
+}
+
+.button__submit:active {
+  background-color: #9A4400;
 }
 
 .login__link{

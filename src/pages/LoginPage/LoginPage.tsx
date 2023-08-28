@@ -77,14 +77,14 @@ function LoginPage() {
   return (
     <>
       <div className={styles.container__wrapper}>
-        <div className={styles.container}>
+        <section className={styles.container}>
           <form className={styles.form} onSubmit={handleSubmit(onValid)}>
             <img
               className={styles.novo__logo}
               src="/images/novo__logo.png"
               alt="novo__logo"
             />
-            <h1 id={styles.form__title}>로그인</h1>
+            <h2 id={styles.form__title}>로그인</h2>
             <div
               className={styles.input__wrapper}
               id={styles.input__wrapper__email}
@@ -142,7 +142,7 @@ function LoginPage() {
               </div>
             )}
             <button className={styles.button__submit} type="submit">
-              <div className={styles.button__submit__text}>로그인</div>
+              로그인
             </button>
             <Link to={`${process.env.PUBLIC_URL}/resetpassword`}>
               <div className={styles.reset__password__link}>
@@ -185,7 +185,7 @@ function LoginPage() {
               />
             </div>
           </form>
-        </div>
+        </section>
         {popupOpen && (
           <>
             <div className={styles.cover} onClick={closePopUp} />

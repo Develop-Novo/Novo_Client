@@ -55,14 +55,14 @@ function RegisterPage() {
   return (
     <>
       <div className={styles.container__wrapper}>
-        <div className={styles.container}>
+        <section className={styles.container}>
           <form className={styles.form} onSubmit={handleSubmit(onValid)}>
             <img
               className={styles.novo__logo}
               src="/images/novo__logo.png"
               alt="novo__logo"
             />
-            <h1 id={styles.form__title}>회원가입</h1>
+            <h2 id={styles.form__title}>회원가입</h2>
             <div
               className={styles.input__wrapper}
               id={styles.input__wrapper__name}
@@ -149,7 +149,7 @@ function RegisterPage() {
               </div>
             )}
             <button className={styles.button__submit} type="submit">
-              <div className={styles.button__submit__text}>회원가입</div>
+              회원가입
             </button>
             <Link to={`${process.env.PUBLIC_URL}/`}>
               <div className={styles.login__link}>
@@ -207,7 +207,7 @@ function RegisterPage() {
               </div>
             </>
           )}
-        </div>
+        </section>
       </div>
     </>
   );
