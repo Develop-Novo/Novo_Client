@@ -6,6 +6,7 @@ import axios from "axios";
 import Button__Submit from "../../components/Button/Button__Submit/Button__Submit";
 import Buttons__SocialLogin from "../../components/Button/Buttons__SocialLogin/Buttons__SocialLogin";
 import Popup from "../../components/Popup/Popup";
+import { apiClient } from "../..";
 
 interface IData {
   name: string;
@@ -32,8 +33,8 @@ function RegisterPage() {
     //console.log("Backend에 전송");
     const postMember = async () => {
       try {
-        const response = await axios.post(
-          "http://52.78.121.235:8080/member/new",
+        const response = await apiClient.post(
+          "member/new",
           {
             name: data.name,
             email: data.email,

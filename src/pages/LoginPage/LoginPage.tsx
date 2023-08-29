@@ -6,6 +6,7 @@ import axios from "axios";
 import Button__Submit from "../../components/Button/Button__Submit/Button__Submit";
 import Buttons__SocialLogin from "../../components/Button/Buttons__SocialLogin/Buttons__SocialLogin";
 import Popup from "../../components/Popup/Popup";
+import { apiClient } from "../..";
 
 interface IData {
   email: string;
@@ -29,14 +30,11 @@ function LoginPage() {
     //console.log("Backend에 전송");
     const getMemberByEmail = async () => {
       try {
-        const response = await axios.get(
-          `http://52.78.121.235:8080/member/email/${data.email}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await apiClient.get(`member/email/${data.email}`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         return response.data.data;
       } catch (error) {
         console.log(error);
@@ -44,8 +42,8 @@ function LoginPage() {
     };
     const postLogin = async () => {
       try {
-        const response = await axios.post(
-          "http://52.78.121.235:8080/member/login",
+        const response = await apiClient.post(
+          "member/login",
           {
             email: data.email,
             password: data.password,
@@ -74,7 +72,7 @@ function LoginPage() {
 
   const closePopup = () => {
     setPopupOpen(false);
-    navigate("/main");
+    navigate(`${process.env.PUBLIC_URL}/main`);
   };
 
   return (

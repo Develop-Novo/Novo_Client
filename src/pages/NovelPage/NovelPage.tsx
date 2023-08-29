@@ -9,6 +9,7 @@ import Header from "../../components/Header/Header";
 import { Link, useParams } from "react-router-dom";
 import Button__Shortcut from "../../components/Button/Button__Shortcut/Button__Shortcut";
 import Button__Comment from "../../components/Button/Button__Comment/Button__Comment";
+import { apiClient } from "../..";
 
 interface INovel {
   ageRating: string;
@@ -69,14 +70,11 @@ function NovelPage() {
   useEffect(() => {
     const getComments = async () => {
       try {
-        const response = await axios.get(
-          `http://52.78.121.235:8080/review/contentId/${id}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await apiClient.get(`review/contentId/${id}`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         return response.data;
       } catch (error) {
         console.log(error);
@@ -90,8 +88,8 @@ function NovelPage() {
         try {
           const userDatasApi = [];
           for (var i = 0; i < res.data.length; i++) {
-            const response = await axios.get(
-              `http://52.78.121.235:8080/member/id/${res.data[i].memberId}`
+            const response = await apiClient.get(
+              `member/id/${res.data[i].memberId}`
             );
             const userData = {
               id: response.data.data.id,
@@ -111,8 +109,8 @@ function NovelPage() {
         try {
           const ratingDatasApi = [];
           for (var i = 0; i < res.data.length; i++) {
-            const response = await axios.get(
-              `http://52.78.121.235:8080/star/id/${res.data[i].starId}`
+            const response = await apiClient.get(
+              `star/id/${res.data[i].starId}`
             );
             const ratingData = {
               star: response.data.data.star,
@@ -135,14 +133,11 @@ function NovelPage() {
     //해당 id의 novel 정보를 가져옴
     const getNovel = async () => {
       try {
-        const response = await axios.get(
-          `http://52.78.121.235:8080/content/id/${id}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await apiClient.get(`content/id/${id}`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         return response.data;
       } catch (error) {
         console.log(error);
@@ -152,14 +147,11 @@ function NovelPage() {
     //전체 별점 데이터를 가져오기//////////////////////////////////
     const getAllRating = async () => {
       try {
-        const response = await axios.get(
-          `http://52.78.121.235:8080/star/contentId/${id}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await apiClient.get(`star/contentId/${id}`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         return response.data;
       } catch (error) {
         console.log(error);

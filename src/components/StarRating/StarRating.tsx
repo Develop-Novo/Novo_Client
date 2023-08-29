@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./StarRating.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { apiClient } from "../..";
 
 // StarRating 컴포넌트의 props 타입 정의
 interface IRating {
@@ -34,8 +35,8 @@ function StarRating({ memberId, contentId, myRating }: StarRatingProps) {
   const handleClick = (itemId: number) => {
     const postNewStar = async (star: number) => {
       try {
-        const response = await axios.post(
-          "http://52.78.121.235:8080/star/new",
+        const response = await apiClient.post(
+          "star/new",
           {
             memberId: memberId,
             contentId: contentId,
@@ -54,8 +55,8 @@ function StarRating({ memberId, contentId, myRating }: StarRatingProps) {
     };
     const modifyStar = async (star: number, starId: number) => {
       try {
-        const response = await axios.put(
-          `http://52.78.121.235:8080/star/id/${starId}`,
+        const response = await apiClient.put(
+          `star/id/${starId}`,
           {
             memberId: memberId,
             contentId: contentId,
