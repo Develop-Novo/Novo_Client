@@ -24,12 +24,9 @@ const Comment: React.FC<{ commentProps: CommentProps }> = ({
   const postLike = async () => {
     try {
       const response = await apiClient.post(
-        `http://52.78.121.235:8080/review/id/${commentProps.commentID}/like`,
-        {},
+        `review/id/${commentProps.commentID}/like`,
         {
-          headers: {
-            "Content-Type": "application/json",
-          },
+          "Content-Type": "application/json",
         }
       );
 
